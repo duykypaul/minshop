@@ -7,11 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	Chi tiet ${id } <br />
-	${tensp }
-	${ngaysx }
-	${tenham }
-	${name}
-	${diachi }
+	trang Chi tiet <br />
+	
 </body>
 </html>
