@@ -5,12 +5,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="resources/styles.css" >
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 
-<a href="chitiet" >chi tiet</a>
+<a id="test" href="chitiet" >chi tiet</a>
 <form method="post" action="chitiet">
 	<input type="text" name="tenNhanVien"/>
 	<input type="text" name="diaChi"/>
