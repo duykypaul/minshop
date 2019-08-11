@@ -10,5 +10,8 @@
 	Chi tiet ${id } <br />
 	${tensp }
 	${ngaysx }
+	${tenham }
+	${name}
+	${diachi }
 </body>
 </html>

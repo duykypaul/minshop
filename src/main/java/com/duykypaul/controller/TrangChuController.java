@@ -28,11 +28,18 @@ public class TrangChuController {
 		viewTrangChu.addObject("listnhanvien", listNhanVien);
 		return viewTrangChu;
 	}
-	@RequestMapping(path = "/chitiet/{id}", method = RequestMethod.GET)
-	public String ChiTiet(@PathVariable int id, @MatrixVariable String tensp, @MatrixVariable String ngaysx, ModelMap modelMap) {
-		modelMap.addAttribute("id", id);
-		modelMap.addAttribute("tensp", tensp);
-		modelMap.addAttribute("ngaysx", ngaysx);
+	@RequestMapping(path = "/chitiet", method = RequestMethod.GET)
+	public String getChiTiet(@RequestParam String name, ModelMap modelMap) {
+		modelMap.addAttribute("tenham", "GET");
+		modelMap.addAttribute("name", name);
+		return "chitiet";
+	}
+	
+	@RequestMapping(path = "/chitiet", method = RequestMethod.POST)
+	public String postChiTiet(@RequestParam String name, @RequestParam String diachi, ModelMap modelMap) {
+		modelMap.addAttribute("tenham", "POST");
+		modelMap.addAttribute("name", name);
+		modelMap.addAttribute("diachi", diachi);
 		return "chitiet";
 	}
 }

@@ -15,6 +15,11 @@
 %>
 	<%= nv.getTenNhanVien() + " " + nv.getTuoi() %><br/>
 <%} %>
-<a href="chitiet/2" >chi tiet</a>
+<a href="chitiet?name=duykypaul" >chi tiet</a>
+<form action="chitiet" method="post">
+	<input type="text" name="name"/>
+	<input type="text" name="diachi"/>
+	<input type="submit" value="post du lieu"/>
+</form>
 </body>
 </html>
