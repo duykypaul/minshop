@@ -11,6 +11,11 @@
 <body>
 
 <a href="chitiet" >chi tiet</a>
-${hoten}
+<form method="post" action="chitiet">
+	<input type="text" name="tenNhanVien"/>
+	<input type="text" name="diaChi"/>
+	<input type="text" name="tuoi"/>
+	<input type="submit" value="post du lieu"/>
+</form>
 </body>
 </html>

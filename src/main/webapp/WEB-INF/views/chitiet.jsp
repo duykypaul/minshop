@@ -8,6 +8,8 @@
 </head>
 <body>
 	trang Chi tiet <br />
-	
+	${nv.getTenNhanVien() }
+	${nv.getDiaChi() }
+	${nv.getTuoi() }
 </body>
 </html>
