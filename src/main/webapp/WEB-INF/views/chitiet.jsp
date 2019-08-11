@@ -9,5 +9,6 @@
 <body>
 	Chi tiet ${id } <br />
 	${tensp }
+	${ngaysx }
 </body>
 </html>

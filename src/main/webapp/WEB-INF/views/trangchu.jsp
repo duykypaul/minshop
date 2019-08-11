@@ -15,6 +15,6 @@
 %>
 	<%= nv.getTenNhanVien() + " " + nv.getTuoi() %><br/>
 <%} %>
-<a href="chitiet/2/abc" >chi tiet</a>
+<a href="chitiet/2" >chi tiet</a>
 </body>
 </html>

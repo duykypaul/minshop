@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.MatrixVariable;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -27,10 +28,11 @@ public class TrangChuController {
 		viewTrangChu.addObject("listnhanvien", listNhanVien);
 		return viewTrangChu;
 	}
-	@RequestMapping(path = "/chitiet/{id}/{tensp}", method = RequestMethod.GET)
-	public String ChiTiet(@PathVariable("id") int id, @PathVariable("tensp") String tensp, ModelMap modelMap) {
+	@RequestMapping(path = "/chitiet/{id}", method = RequestMethod.GET)
+	public String ChiTiet(@PathVariable int id, @MatrixVariable String tensp, @MatrixVariable String ngaysx, ModelMap modelMap) {
 		modelMap.addAttribute("id", id);
 		modelMap.addAttribute("tensp", tensp);
+		modelMap.addAttribute("ngaysx", ngaysx);
 		return "chitiet";
 	}
 }
