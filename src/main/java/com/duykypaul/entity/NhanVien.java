@@ -1,76 +1,35 @@
 package com.duykypaul.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="nhanvien")
 public class NhanVien {
+	@Id
+	Integer idNhanVien;
 	String tenNhanVien;
-	String diaChi;
-	int tuoi;
-	GiamDoc doc;
+	Integer tuoi;
 	
-
-	public GiamDoc getDoc() {
-		return doc;
+	public Integer getIdNhanVien() {
+		return idNhanVien;
 	}
-
-
-	public void setDoc(GiamDoc doc) {
-		this.doc = doc;
+	public void setIdNhanVien(Integer idNhanVien) {
+		this.idNhanVien = idNhanVien;
 	}
-
-
 	public String getTenNhanVien() {
 		return tenNhanVien;
 	}
-
-
 	public void setTenNhanVien(String tenNhanVien) {
 		this.tenNhanVien = tenNhanVien;
 	}
-
-
-	public String getDiaChi() {
-		return diaChi;
-	}
-
-
-	public void setDiaChi(String diaChi) {
-		this.diaChi = diaChi;
-	}
-
-
-	public int getTuoi() {
+	public Integer getTuoi() {
 		return tuoi;
 	}
-
-
-	public void setTuoi(int tuoi) {
+	public void setTuoi(Integer tuoi) {
 		this.tuoi = tuoi;
 	}
 
-	public NhanVien(GiamDoc doc) {
-		this.doc = doc;
-	}
 	
-	
-	public NhanVien() {
-		
-	}
-	
-	public NhanVien(String tenNhanVien, int tuoi) {
-		super();
-		this.tenNhanVien = tenNhanVien;
-		this.tuoi = tuoi;
-	}
-	
-	
-	public NhanVien(String tenNhanVien, String diaChi, int tuoi) {
-		super();
-		this.tenNhanVien = tenNhanVien;
-		this.diaChi = diaChi;
-		this.tuoi = tuoi;
-	}
-
-
-	public void getThongBao() {
-		System.out.println(tenNhanVien + " " + tuoi);
-	}
 }
