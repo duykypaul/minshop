@@ -191,6 +191,68 @@ html, body {
 #info > span {
 	margin-top: 16px;
 }
+
+#title-product {
+	margin-top: 100px;
+	text-align: center;
+	font-size: 32px;
+	font-weight: 500;
+}
+#title-product .row {
+	margin-top: 42px;
+}
+.product {
+	margin-top: 30px;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	padding-bottom: 16px;
+}
+
+.product > img {
+	height: 256px;
+}
+
+.price {
+	font-size: 14px;
+	color: red;
+	margin-top: 16px;
+	padding-bottom: 16px;
+}
+
+#footer {
+	margin-top: 48px;
+	color: white;
+	background-color: black;
+	padding: 38px;
+}
+
+#footer p{
+	text-align: center;
+}
+.title-footer{
+	font-size: 32px;
+}
+
+.material-input {
+	height: 38px;
+	background-color: #d8d8d8;
+	border: none;
+	width: 100%;
+}
+
+.material-input-area {
+	background-color: #d8d8d8;
+	border: none;
+	width: 100%;
+}
+
+.margin-bottom-8{
+	margin-bottom: 8px;
+}
+
+
 @media (max-width: 575.98px) { 
 	.nav-center {
 		margin-left: 0 !important;
