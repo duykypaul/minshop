@@ -139,7 +139,7 @@ html, body {
       rgba(0, 0, 0, 0.42), 
       rgba(0, 0, 0, 0.42)
     ),
-	url(../image/background_home.png) no-repeat center center fixed;
+	url(../image/background_home.png) no-repeat center center;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -165,7 +165,7 @@ html, body {
 }
 
 .dropdown-menu {
-	background-color: #bed8b4 !important ;
+	background-color: #949389 !important ;
 	opacity: 0.8;
 }
 
@@ -179,7 +179,18 @@ html, body {
 	color: white;
 }
 
+#info {
+	text-align: center;
+	margin-top: 48px;
+}
+#info img{
+	width: 48px;
+	height: 48px;
+}
 
+#info > span {
+	margin-top: 16px;
+}
 @media (max-width: 575.98px) { 
 	.nav-center {
 		margin-left: 0 !important;
