@@ -1,4 +1,5 @@
 @charset "UTF-8";
+
 html, body {
 	width: 100%;
 	height: 100%;
@@ -24,7 +25,8 @@ html, body {
 	width: 820px;
 	background-color: white;
 }
-#container-login-left{
+
+#container-login-left {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -38,30 +40,36 @@ html, body {
 	text-align: center;
 	color: white;
 }
-.header-login{
+
+.header-login {
 	margin-top: 32px;
 }
-#text-logo{
+
+#text-logo {
 	font-size: 48px;
 }
-#hint-text-logo{
+
+#hint-text-logo {
 	font-size: 12px;
 	opacity: 0.7;
 }
+
 #footer-left {
 	margin-bottom: 64px;
 	color: white;
 }
+
 #footer-left img {
 	margin-bottom: 2px;
 }
-#footer-left span{
+
+#footer-left span {
 	margin-left: 8px;
 	pitch: top;
 	height: 16px;
 }
 
-#container-login-right{
+#container-login-right {
 	display: flex;
 	flex: 1;
 	flex-direction: column;
@@ -69,55 +77,112 @@ html, body {
 	padding: 0 24px;
 }
 
-#header-right{
+#header-right {
 	font-size: 20px;
 	color: #b7b7b7;
 }
 
-.actived{
+.actived {
 	color: #da7c79;
 }
 
-#middle-right input[type=text]{
+#middle-right input[type=text] {
 	margin-top: 8px;
 }
 
-#middle-right input[type=password]{
+#middle-right input[type=password] {
 	margin-top: 8px;
 }
-#middle-right input[type=submit]{
+
+#middle-right input[type=submit] {
 	margin-top: 24px;
 	color: white;
 }
 
-.input-icon-email{
+.input-icon-email {
 	background: url("../image/ic_email.png") no-repeat scroll 16px 13px;
 	padding-left: 42px;
 	height: 38px;
 	background-color: #d8d8d8;
-	border:none;
+	border: none;
 	width: 88%;
 }
-.input-icon-password{
+
+.input-icon-password {
 	background: url("../image/ic_lock.png") no-repeat scroll 16px 10px;
 	padding-left: 42px;
 	height: 38px;
 	background-color: #d8d8d8;
-	border:none;
+	border: none;
 	width: 88%;
 }
-.material-primary-button{
+
+.material-primary-button {
 	height: 38px;
 	background-color: #00909C;
-	border:none;
+	border: none;
 	width: 100%;
 	box-shadow: 0 2px 4px 0px #000;
 }
+
 #footer-right {
 	align-self: flex-end;
 	margin-bottom: 16px;
 }
 /* End css page login */
+
+/*===================================== START CSS FOR HOME PAGE =============================*/
+#header {
+	height: 662px;
+	background: 
+		linear-gradient(
+      rgba(0, 0, 0, 0.42), 
+      rgba(0, 0, 0, 0.42)
+    ),
+	url(../image/background_home.png) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.none-nav {
+	background: none !important;
+	border: none !important;
+}
+
+.nav-center {
+	margin-left: 25% !important;
+}
+.navbar-nav a {
+	color: white !important;
+}
+
+.active > a, .open > a {
+	color: #bed8b4 !important;
+    font-weight: 600;
+    background: none !important;
+}
+
+.dropdown-menu {
+	background-color: #bed8b4 !important ;
+	opacity: 0.8;
+}
+
+.event_header {
+	text-align: center;
+	margin-top: 260px;
+}
+
+
+.event_header > span {
+	color: white;
+}
+
+
+/*===================================== END CSS FOR HOME PAGE =============================*/
+
+
 
 
 
