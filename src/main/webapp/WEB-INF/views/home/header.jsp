@@ -49,7 +49,7 @@
 	</div>
 	<!-- /.container-fluid -->
 </nav>
-<div class="event_header container">
+<div class="event_header container wow rubberBand">
 	<span>Ngày 17/10 - 23/10/2019</span><br /> <span
 		style="font-size: 50px;">MUA 1 TẶNG 1</span><br />
 	<button class="btn-info">XEM NGAY</button>

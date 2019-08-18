@@ -7,7 +7,7 @@
 
 <meta charset="UTF-8">
 <title>Đăng nhập</title>
-<jsp:include page="header.jsp"/>
+<jsp:include page="taglib/header.jsp"/>
 </head>
 <body id="body-login">
 	<div id="body-flex-login">
@@ -41,6 +41,6 @@
 			</div>
 		</div>
 	</div>
-	<jsp:include page="footer.jsp"/>
+	<jsp:include page="taglib/footer.jsp"/>
 </body>
 </html>
