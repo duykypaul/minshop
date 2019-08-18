@@ -23,6 +23,9 @@ public class NhanVien {
 	public Integer getIdNhanVien() {
 		return idNhanVien;
 	}
+	public NhanVien() {
+		super();
+	}
 	public void setIdNhanVien(Integer idNhanVien) {
 		this.idNhanVien = idNhanVien;
 	}

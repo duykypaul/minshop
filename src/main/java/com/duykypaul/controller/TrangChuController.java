@@ -27,14 +27,13 @@ public class TrangChuController {
 
 		Session session = sessionFactory.getCurrentSession();
 		
+		NhanVien suka = (NhanVien) session.createQuery("from NhanVien WHERE idNhanVien = 4").uniqueResult();
+		suka.setTuoi(25);
+		session.update(suka);
+		suka = session.get(NhanVien.class, 4);
+		suka.setTenNhanVien("suka beau");
+		session.update(suka);
 		return "trangchu";
 	}
 	
-	@PostMapping
-	@Transactional
-	public String themNhanVien(@RequestParam String tenNhanVien, @RequestParam Integer tuoi) {
-		Session session = sessionFactory.getCurrentSession();
-		session.save(new NhanVien(tenNhanVien, tuoi));
-		return "trangchu";
-	}
 }
