@@ -16,8 +16,10 @@
 	</div>
 	<div class="col-12 col-sm-4 col-md-4 wow tada">
 		<p><span class="title-footer">GÓP Ý</span></p>
-		<input class="material-input margin-bottom-8" type="text" placeholder="Email" />
-		<textarea class="material-input-area margin-bottom-8" rows="4" cols="50" placeholder="Nội dung" ></textarea>
-		<button class="material-primary-button">ĐỒNG Ý</button>
+		<form action="" method="POST">
+			<input name="tenNhanVien" class="material-input margin-bottom-8" type="text" placeholder="Email" />
+			<textarea name="tuoi" class="material-input-area margin-bottom-8" rows="4" cols="50" placeholder="Nội dung" ></textarea>
+			<button type="submit" class="material-primary-button">ĐỒNG Ý</button>
+		</form>
 	</div>
 </div>
