@@ -11,7 +11,7 @@ create table NHANVIEN (
     matkhau varchar(16) not null,
     hoten nvarchar(30),
     diachi nvarchar(100),
-    gioitinh tinyint,
+    gioitinh bit,
     cmnd char(14),
     email varchar(50),
     sdt varchar(12),
@@ -70,6 +70,7 @@ create table KHUYENMAI (
     thoigianketthuc nvarchar(50),
     mota text,
     hinhanhkhuyenmai text,
+    giagiam integer,
     primary key(makhuyenmai)
 );
 
@@ -77,7 +78,6 @@ create table KHUYENMAI (
 create table CHITIETKHUYENMAI(
 	makhuyenmai integer not null auto_increment,
     masanpham integer not null,
-    giagiam integer,
     primary key(makhuyenmai, masanpham),
     constraint FK_CHITIETKHUYENMAI_KHUYENMAI foreign key(makhuyenmai) references KHUYENMAI(makhuyenmai),
     constraint FK_CHITIETKHUYENMAI_SANPHAM foreign key(masanpham) references SANPHAM(masanpham)
@@ -88,8 +88,8 @@ create table HOADON (
     tenkhachhang nvarchar(50),
     sdt nvarchar(12),
     diachigiaohang nvarchar(100),
-    tinhtrang tinyint,
-    ngaymua nvarchar(50),
+    tinhtrang bit,
+    ngaylap nvarchar(50),
     primary key(mahoadon)
 );
 
