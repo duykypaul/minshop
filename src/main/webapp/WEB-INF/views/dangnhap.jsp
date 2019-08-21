@@ -28,11 +28,10 @@
 					<span class="actived">Đăng nhập</span> / <span>Đăng ký</span>
 				</div>
 				<div id="middle-right">
-					<form action="" method="post">
-						<input class="input-icon-email" type="text" placeholder="Email" name="email">
-						<input class="input-icon-password" type="password" placeholder="Password" name="matkhau">
-						<input class="material-primary-button" type="submit" value="ĐĂNG NHẬP">
-					</form>
+					<input id="email" class="input-icon-email" type="text" placeholder="Email" name="email">
+					<input id="password" class="input-icon-password" type="password" placeholder="Password" name="matkhau">
+					<input id="login" class="material-primary-button" type="submit" value="ĐĂNG NHẬP" > <br />
+					<span id="status_login">login</span>
 				</div>
 				<div id="footer-right">
 					<img alt="icon_oval" src="<c:url value="/resources/image/icon_facebook.png" />"/>
