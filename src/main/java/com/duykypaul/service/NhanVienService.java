@@ -4,10 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.duykypaul.dao.NhanVienDao;
-import com.duykypaul.dao.impl.NhanVienImpl;
+import com.duykypaul.dao.impl.INhanVien;
 
 @Service
-public class NhanVienService implements NhanVienImpl  {
+public class NhanVienService implements INhanVien  {
 	
 	@Autowired
 	NhanVienDao nhanVienDao;
@@ -16,7 +16,5 @@ public class NhanVienService implements NhanVienImpl  {
 	public Boolean kiemTraDangNhap(String email, String matkhau) {
 		return nhanVienDao.kiemTraDangNhap(email, matkhau);
 	}
-	
-	
 	
 }

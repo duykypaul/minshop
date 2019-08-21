@@ -38,6 +38,7 @@
 					<img alt="icon_oval" src="<c:url value="/resources/image/icon_facebook.png" />"/>
 					<img alt="icon_oval" src="<c:url value="/resources/image/icon_google.png" />"/>
 				</div>
+				<span>${checkLogin}</span>
 			</div>
 		</div>
 	</div>

@@ -1,5 +1,5 @@
 package com.duykypaul.dao.impl;
 
-public interface NhanVienImpl {
+public interface INhanVien {
 	Boolean kiemTraDangNhap(String email, String matkhau);
 }
