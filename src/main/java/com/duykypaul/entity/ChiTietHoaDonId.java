@@ -1,9 +1,11 @@
 package com.duykypaul.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class ChiTietHoaDonId {
+public class ChiTietHoaDonId implements Serializable {
     Integer mahoadon;
     Integer machitietsanpham;
 

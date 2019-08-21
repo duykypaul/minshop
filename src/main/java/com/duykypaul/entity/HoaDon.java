@@ -3,7 +3,7 @@ package com.duykypaul.entity;
 import javax.persistence.*;
 import java.util.Set;
 
-@Entity(name="hoadon")
+@Entity @Table(name="hoadon")
 public class HoaDon {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

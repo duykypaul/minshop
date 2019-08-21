@@ -2,8 +2,9 @@ package com.duykypaul.entity;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
-@Entity(name="chitiethoadon")
+@Entity @Table(name="chitiethoadon")
 public class ChiTietHoaDon {
     @EmbeddedId
     ChiTietHoaDonId chiTietHoaDonId;

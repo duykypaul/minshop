@@ -14,7 +14,9 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 
 	<context:component-scan base-package="com.duykypaul.controller"/>
-	<context:component-scan base-package="com.duykypaul.entity"/>
+	<context:component-scan base-package="com.duykypaul.service"/>
+	<context:component-scan base-package="com.duykypaul.dao"/>
+	
 	<mvc:resources location="/resources/" mapping="/resources/**"></mvc:resources>
 	<mvc:annotation-driven enable-matrix-variables="true"/>
 	<import resource="classpath:IoC.xml"/>

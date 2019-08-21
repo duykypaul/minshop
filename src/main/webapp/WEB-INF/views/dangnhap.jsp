@@ -28,9 +28,9 @@
 					<span class="actived">Đăng nhập</span> / <span>Đăng ký</span>
 				</div>
 				<div id="middle-right">
-					<form>
-						<input class="input-icon-email" type="text" placeholder="Email">
-						<input class="input-icon-password" type="password" placeholder="Password">
+					<form action="" method="post">
+						<input class="input-icon-email" type="text" placeholder="Email" name="email">
+						<input class="input-icon-password" type="password" placeholder="Password" name="matkhau">
 						<input class="material-primary-button" type="submit" value="ĐĂNG NHẬP">
 					</form>
 				</div>

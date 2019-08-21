@@ -2,7 +2,7 @@ package com.duykypaul.entity;
 
 import javax.persistence.*;
 
-@Entity(name="nhanvien")
+@Entity @Table(name="nhanvien")
 public class NhanVien {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
