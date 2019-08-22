@@ -39,8 +39,16 @@
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#">ĐĂNG KÝ</a></li>
-				<li><a href="dangnhap/">ĐĂNG NHẬP</a></li>
+				<c:choose>
+					<c:when test="${email != null}">
+						<li><a href="#">${email}</a></li>
+					</c:when>
+					<c:otherwise>
+						<li><a href="#">ĐĂNG KÝ</a></li>
+						<li><a href="dangnhap/">ĐĂNG NHẬP</a></li>
+					</c:otherwise>
+				</c:choose>
+
 				<li><a href="#"><img
 						src="<c:url value="/resources/image/cart-73-16.png" />" /></a></li>
 			</ul>
