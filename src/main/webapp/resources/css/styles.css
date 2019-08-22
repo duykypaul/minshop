@@ -169,6 +169,26 @@ html, body {
 	opacity: 0.8;
 }
 
+.circle-avatar {
+	width: 32px;
+    height: 32px;
+    background-color: chocolate;
+    text-align: center;
+    border-radius: 16px;
+    padding: 7px 12px !important;
+    margin-top: 9px;
+}
+
+a.circle-avatar:hover {
+	width: 32px !important;
+    height: 32px !important;
+    background-color: chocolate !important;
+    text-align: center !important;
+    border-radius: 16px !important;
+    padding: 7px 12px !important;
+    margin-top: 9px !important;
+}
+
 .event_header {
 	text-align: center;
 	margin-top: 260px;

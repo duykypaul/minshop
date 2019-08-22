@@ -10,7 +10,8 @@ $(document).ready(function() {
 			},
 			success : function(value) {
 				if (value == "true") {
-					$("#status_login").html("Đăng nhập thành công!");
+					currentPath = window.location.href;
+					window.location = currentPath.replace("dangnhap/", "");
 				} else {
 					$("#status_login").html("Đăng nhập thất bại!");
 				}

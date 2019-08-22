@@ -31,13 +31,12 @@
 					<input id="email" class="input-icon-email" type="text" placeholder="Email" name="email">
 					<input id="password" class="input-icon-password" type="password" placeholder="Password" name="matkhau">
 					<input id="login" class="material-primary-button" type="submit" value="ĐĂNG NHẬP" > <br />
-					<span id="status_login">login</span>
+					<span id="status_login"></span>
 				</div>
 				<div id="footer-right">
 					<img alt="icon_oval" src="<c:url value="/resources/image/icon_facebook.png" />"/>
 					<img alt="icon_oval" src="<c:url value="/resources/image/icon_google.png" />"/>
 				</div>
-				<span>${email}</span>
 			</div>
 		</div>
 	</div>

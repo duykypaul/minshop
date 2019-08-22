@@ -41,10 +41,9 @@
 			<ul class="nav navbar-nav navbar-right">
 				<c:choose>
 					<c:when test="${email != null}">
-						<li><a href="#">${email}</a></li>
+						<li><a href="#" class="circle-avatar"><span>${email.substring(0, 1).toUpperCase()}</span></a></li>
 					</c:when>
 					<c:otherwise>
-						<li><a href="#">ĐĂNG KÝ</a></li>
 						<li><a href="dangnhap/">ĐĂNG NHẬP</a></li>
 					</c:otherwise>
 				</c:choose>

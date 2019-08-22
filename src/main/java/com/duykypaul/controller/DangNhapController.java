@@ -12,8 +12,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 public class DangNhapController {
 	
 	@GetMapping
-	public String Default(@SessionAttribute("email") String email) {
-		System.out.println(email);
+	public String Default() {
 		return "dangnhap";
 	}
 	
