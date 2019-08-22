@@ -25,12 +25,20 @@
 			</div>
 			<div id="container-login-right">
 				<div id="header-right" class="header-login">
-					<span class="actived">Đăng nhập</span> / <span>Đăng ký</span>
+					<span id="header-login" class="actived">Đăng nhập</span> / <span id="header-signup">Đăng ký</span>
 				</div>
 				<div id="middle-right">
-					<input id="email" class="input-icon-email" type="text" placeholder="Email" name="email">
-					<input id="password" class="input-icon-password" type="password" placeholder="Password" name="matkhau">
-					<input id="login" class="material-primary-button" type="submit" value="ĐĂNG NHẬP" > <br />
+					<div id="middle-right" class="form-login">
+						<input id="email" class="input-icon-email" type="text" placeholder="Email" name="email">
+						<input id="password" class="input-icon-password" type="password" placeholder="Password" name="matkhau">
+						<input id="login" class="material-primary-button" type="submit" value="ĐĂNG NHẬP" > <br />
+					</div>
+					<div id="middle-right" class="form-signup">
+						<input id="email" class="input-icon-email" type="text" placeholder="Email" name="email">
+						<input id="password" class="input-icon-password" type="password" placeholder="Password" name="matkhau">
+						<input id="confirm-password" class="input-icon-password" type="password" placeholder="Confirm password">
+						<input id="btn-login" class="material-primary-button" type="submit" value="ĐĂNG KÝ" > <br />
+					</div>
 					<span id="status_login"></span>
 				</div>
 				<div id="footer-right">
