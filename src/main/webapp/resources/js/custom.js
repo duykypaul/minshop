@@ -18,7 +18,6 @@ $(document).ready(function() {
 
 			},
 			error : function(value) {
-				alert("fail!");
 				$("#status_login").html("fail!");
 			}
 		})

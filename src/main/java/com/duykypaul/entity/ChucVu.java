@@ -35,6 +35,10 @@ public class ChucVu {
 		this.machucvu = machucvu;
 		this.tenchucvu = tenchucvu;
 	}
+	
+	public ChucVu() {
+		super();
+	}
     
     
 }

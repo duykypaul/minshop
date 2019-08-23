@@ -30,14 +30,14 @@
 				<div id="middle-right">
 					<div id="middle-right" class="form-login">
 						<input id="email" class="input-icon-email" type="text" placeholder="Email" name="email">
-						<input id="password" class="input-icon-password" type="password" placeholder="Password" name="matkhau">
-						<input id="login" class="material-primary-button" type="submit" value="ĐĂNG NHẬP" > <br />
+						<input id="password" class="input-icon-password" type="password" placeholder="Mật khẩu" name="matkhau">
+						<input id="btn-login" class="material-primary-button" type="submit" value="ĐĂNG NHẬP" > <br />
 					</div>
 					<div id="middle-right" class="form-signup">
 						<form action="" method="post">
 							<input id="email" class="input-icon-email" type="text" placeholder="Email" name="email">
-							<input id="password" class="input-icon-password" type="password" placeholder="Password" name="matkhau">
-							<input id="confirm-password" class="input-icon-password" type="password" placeholder="Confirm password" name="confirmPassword">
+							<input id="password" class="input-icon-password" type="password" placeholder="Mật khẩu" name="matkhau">
+							<input id="confirm-password" class="input-icon-password" type="password" placeholder="Xác nhận mật khẩu" name="confirmPassword">
 							<input id="btn-signup" class="material-primary-button" type="submit" value="ĐĂNG KÝ" > <br />
 						</form>
 					</div>
@@ -51,5 +51,33 @@
 		</div>
 	</div>
 	<jsp:include page="taglib/footer.jsp"/>
+	<!-- <script type="text/javascript">
+	$(document).ready(function() {
+		$("#btn-login").click(function() {
+			var email = $("#email").val();
+			var password = $("#password").val();
+			$.ajax({
+				url : "/minshop/api/KiemTraDangNhap",
+				data : {
+					email : email,
+					matkhau : password
+				},
+				success : function(value) {
+					if (value == "true") {
+						currentPath = window.location.href;
+						window.location = currentPath.replace("dangnhap/", "");
+					} else {
+						$("#status_login").html("Đăng nhập thất bại!");
+					}
+
+				},
+				error : function(value) {
+					alert("fail!");
+					$("#status_login").html("fail!");
+				}
+			})
+		});
+	})
+	</script> -->
 </body>
 </html>
