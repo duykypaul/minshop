@@ -7,6 +7,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Min Shop</title>
+	<link rel="shortcut icon" href="<c:url value="/resources/image/logo.jpg" />">
 	<jsp:include page="taglib/header.jsp" />
 </head>
 <body>
