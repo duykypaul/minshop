@@ -24,7 +24,7 @@
 				</div>
 			</div>
 			<div id="container-login-right">
-				<div id="header-right" class="header-login">
+				<div id="header-right" class="header-login-signup">
 					<span id="header-login" class="actived">Đăng nhập</span> / <span id="header-signup">Đăng ký</span>
 				</div>
 				<div id="middle-right">
@@ -34,12 +34,14 @@
 						<input id="login" class="material-primary-button" type="submit" value="ĐĂNG NHẬP" > <br />
 					</div>
 					<div id="middle-right" class="form-signup">
-						<input id="email" class="input-icon-email" type="text" placeholder="Email" name="email">
-						<input id="password" class="input-icon-password" type="password" placeholder="Password" name="matkhau">
-						<input id="confirm-password" class="input-icon-password" type="password" placeholder="Confirm password">
-						<input id="btn-login" class="material-primary-button" type="submit" value="ĐĂNG KÝ" > <br />
+						<form action="" method="post">
+							<input id="email" class="input-icon-email" type="text" placeholder="Email" name="email">
+							<input id="password" class="input-icon-password" type="password" placeholder="Password" name="matkhau">
+							<input id="confirm-password" class="input-icon-password" type="password" placeholder="Confirm password" name="confirmPassword">
+							<input id="btn-signup" class="material-primary-button" type="submit" value="ĐĂNG KÝ" > <br />
+						</form>
 					</div>
-					<span id="status_login"></span>
+					<span id="status_login">${status_login}</span>
 				</div>
 				<div id="footer-right">
 					<img alt="icon_oval" src="<c:url value="/resources/image/icon_facebook.png" />"/>

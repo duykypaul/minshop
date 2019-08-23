@@ -29,4 +29,12 @@ public class ChucVu {
     public void setTenchucvu(String tenchucvu) {
         this.tenchucvu = tenchucvu;
     }
+
+	public ChucVu(Integer machucvu, String tenchucvu) {
+		super();
+		this.machucvu = machucvu;
+		this.tenchucvu = tenchucvu;
+	}
+    
+    
 }

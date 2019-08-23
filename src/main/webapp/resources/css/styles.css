@@ -41,8 +41,11 @@ html, body {
 	color: white;
 }
 
-.header-login {
+.header-login-signup {
 	margin-top: 32px;
+}
+.header-login-signup:hover {
+	cursor: pointer;
 }
 
 #text-logo {

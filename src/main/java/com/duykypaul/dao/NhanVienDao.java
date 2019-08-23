@@ -8,7 +8,7 @@ import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.duykypaul.dao.impl.INhanVien;
+import com.duykypaul.dao.inf.INhanVien;
 import com.duykypaul.entity.NhanVien;
 
 @Repository
@@ -28,6 +28,14 @@ public class NhanVienDao implements INhanVien{
 		} catch (Exception e) {
 			return false;
 		}
+	}
+
+	@Override
+	@Transactional
+	public Boolean themNhanVien(NhanVien nhanVien) {
+		Session session = sessionFactory.getCurrentSession();
+		Integer manhanvien = (Integer) session.save(nhanVien);
+		return manhanvien > 0;
 	}
 	
 }
