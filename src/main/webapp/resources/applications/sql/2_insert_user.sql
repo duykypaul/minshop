@@ -1,0 +1,1 @@
+INSERT INTO `minshop`.`user` (`email`, `password`, `full_name`, `old`, `address`, `sex`, `id_number`, `phone_number`, `role_id`) VALUES ('duykypaul@gmail.com', '123456', 'Lê Công Kỳ', 20, 'Hà Nội', true, '038099001829', '0329199381', 1)
