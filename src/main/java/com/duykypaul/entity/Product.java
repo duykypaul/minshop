@@ -9,7 +9,7 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer product_id;
     String name;
-    String price;
+    Integer price;
     String descriptions;
     String image;
 
@@ -43,11 +43,11 @@ public class Product {
         this.name = name;
     }
 
-    public String getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
 

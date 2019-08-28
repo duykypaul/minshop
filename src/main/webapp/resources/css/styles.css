@@ -7,7 +7,7 @@ html, body {
 	font-size: 14px;
 }
 
-/* Start css page login */
+/*===================================== START CSS FOR LOGIN PAGE =============================*/
 #body-login {
 	background-color: #00909C;
 }
@@ -103,19 +103,17 @@ html, body {
 }
 
 .input-icon-email {
-	background: url("../image/ic_email.png") no-repeat scroll 16px 10px;
 	padding-left: 42px;
 	height: 38px;
-	background-color: #d8d8d8;
+	background: #d8d8d8 url("../image/ic_email.png") no-repeat scroll 16px 10px;
 	border: none;
 	width: 100%;
 }
 
 .input-icon-password {
-	background: url("../image/ic_lock.png") no-repeat scroll 16px 6px;
 	padding-left: 42px;
 	height: 38px;
-	background-color: #d8d8d8;
+	background: #d8d8d8 url("../image/ic_lock.png") no-repeat scroll 16px 6px;
 	border: none;
 	width: 100%;
 }
@@ -135,7 +133,7 @@ html, body {
 	align-self: flex-end;
 	margin-bottom: 16px;
 }
-/* End css page login */
+/*===================================== END CSS FOR LOGIN PAGE ==============================*/
 
 /*===================================== START CSS FOR HOME PAGE =============================*/
 #header {
@@ -221,7 +219,7 @@ a.circle-avatar:hover {
 #title-product {
 	margin-top: 100px;
 	text-align: center;
-	font-size: 32px;
+	font-size: 18px;
 	font-weight: 500;
 }
 #title-product .row {
@@ -310,7 +308,7 @@ a.circle-avatar:hover {
 	}
 }
 
-// Extra large devices (large desktops, 1200px and up)
+ /*Extra large devices (large desktops, 1200px and up)*/
 @media (min-width: 1200px) {  }
 
 
