@@ -5,7 +5,7 @@
 <div class="row">
 	<div class="col-12 col-sm-4 col-md-4">
 		<p><span class="title-footer">THÔNG TIN</span></p>
-		<span>MinShop cam kết chất lượng cho tất cả sản phẩm bán tại cửa hàng MinShop bằng chính sách bảo hành 365 ngày và chăm sóc trọn đời sau khi hết bảo hành.</span>
+		<span>MinShop cam kết chất lượng cho tất cả sản phẩm bán tại cửa hàng với chính sách bảo hành 365 ngày và chăm sóc trọn đời sau khi hết bảo hành.</span>
 	</div>
 	<div class="col-12 col-sm-4 col-md-4">
 		<p><span class="title-footer">LIÊN HỆ</span></p>

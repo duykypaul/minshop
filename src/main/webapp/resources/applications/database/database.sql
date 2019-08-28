@@ -105,3 +105,9 @@ create table invoice_details (
     constraint fk_invoice_details_invoice foreign key(invoice_id) references invoice(invoice_id),
     constraint fk_invoice_details_product_details foreign key(product_details_id) references product_details(product_details_id)
 );
+
+ALTER TABLE `minshop`.`product`
+ADD COLUMN `object` VARCHAR(10) NULL DEFAULT NULL AFTER `product_line_id`;
+
+alter table product modify image varchar(50) null;
+
