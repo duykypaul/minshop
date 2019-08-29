@@ -323,6 +323,10 @@ a.circle-avatar:hover {
 	width: 100%;
 }
 
+.container-menu {
+	margin: 20px 30px;
+}
+
 ul {
 	list-style-type: none;
 }

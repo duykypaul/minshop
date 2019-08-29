@@ -71,7 +71,7 @@
 
 <div id="product-details" class="container">
 	<div class="row">
-		<div class="col-sm-3 col-md-3">
+		<div class="col-sm-2 col-md-2 well container-menu">
 			<h3>Danh mục</h3>
 			<ul class="my-menu">
                 <c:forEach var="productLine" items="${productLineList}">
