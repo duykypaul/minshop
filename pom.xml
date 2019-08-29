@@ -2,8 +2,10 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+
 	<groupId>com.duykypaul</groupId>
 	<artifactId>minshop</artifactId>
+	<packaging>pom</packaging>
 	<version>0.0.1-SNAPSHOT</version>
     <build>
         <plugins>
@@ -17,7 +19,20 @@
             </plugin>
         </plugins>
     </build>
-    <packaging>war</packaging>
+    <modules>
+        <module>minshop-core-dao</module>
+        <module>minshop-core-common</module>
+        <module>minshop-core-data</module>
+        <module>minshop-core-persistence-data</module>
+        <module>minshop-core-service</module>
+        <module>minshop-core-test</module>
+        <module>minshop-core-utils</module>
+        <module>minshop-core-web</module>
+        <module>minshop-web</module>
+		<module>minshop-core-inf</module>
+		<module>minshop-web-logic</module>
+	</modules>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework</groupId>

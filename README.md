@@ -1,1 +1,1 @@
-# minshop
+# Application minshop use spring Framework
