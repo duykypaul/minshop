@@ -63,7 +63,7 @@ create table product_details (
     primary key(product_details_id),
     constraint fk_product_details_product foreign key(product_id) references product(product_id),
     constraint fk_product_details_product_size foreign key(product_size_id) references product_size(product_size_id),
-    constraint fk_product_details_MAUSANPHAM foreign key(product_color_id) references product_color(product_color_id)
+    constraint fk_product_details_product_color foreign key(product_color_id) references product_color(product_color_id)
 );
 
 create table promotion (

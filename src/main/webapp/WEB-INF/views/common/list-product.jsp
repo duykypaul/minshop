@@ -6,11 +6,13 @@
 <div class="row">
 	<c:forEach var="product" items="${productList}">
 		<div class="col-md-3 col-sm-6">
-			<div class="product wow zoomIn">
-				<img src="<c:url value="/resources/image/products/${product.getImage()}" />" /><br />
-				<span>${product.getName()}</span><br />
-				<span class="price">${product.getPrice()} VNĐ</span>
-			</div>
+			<a href="<c:url value="/chitiet/${product.getProduct_id()}"/> ">
+				<div class="product wow zoomIn">
+					<img src="<c:url value="/resources/image/products/${product.getImage()}" />" /><br />
+					<span>${product.getName()}</span><br />
+					<span class="price">${product.getPrice()} VNĐ</span>
+				</div>
+			</a>
 		</div>
 	</c:forEach>
 </div>

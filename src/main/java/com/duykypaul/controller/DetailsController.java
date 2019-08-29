@@ -1,25 +1,26 @@
 package com.duykypaul.controller;
 
+import com.duykypaul.entity.Product;
 import com.duykypaul.entity.User;
+import com.duykypaul.service.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/chitiet")
 public class DetailsController {
-	
-	@GetMapping
-	public String Default() {
+	@Autowired
+	ProductService productService;
+
+	@GetMapping("/{product_id}")
+	public String Default(@PathVariable Integer product_id, ModelMap modelMap) {
+		Product product = productService.getProductById(product_id);
+		modelMap.addAttribute("product", product);
 		return "details";
 	}
-	
-	@PostMapping
-	public String updateUser(@ModelAttribute User user, ModelMap modelMap) {
-		modelMap.addAttribute("user", user);
-		return "details";
-	}
+
 }

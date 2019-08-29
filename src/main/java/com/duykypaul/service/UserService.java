@@ -14,12 +14,12 @@ public class UserService implements IUser  {
 	@Autowired
 	UserDao userDao;
 
-	/*@Override*/
+	@Override
 	public Boolean checkLogin(String email, String password) {
 		return userDao.checkLogin(email, password);
 	}
 
-	/*@Override*/
+	@Override
 	public Boolean addUser(User user) {
 		return userDao.addUser(user);
 	}

@@ -13,7 +13,13 @@ public class ProductService implements IProduct {
     @Autowired
     ProductDao productDao;
 
+    @Override
     public List<Product> getProductListLimit(Integer startIndex) {
         return productDao.getProductListLimit(startIndex);
+    }
+
+    @Override
+    public Product getProductById(Integer product_id) {
+        return productDao.getProductById(product_id);
     }
 }

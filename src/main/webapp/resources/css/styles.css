@@ -311,8 +311,15 @@ a.circle-avatar:hover {
  /*Extra large devices (large desktops, 1200px and up)*/
 @media (min-width: 1200px) {  }
 
-
 /*===================================== END CSS FOR HOME PAGE =============================*/
+
+/*===================================== START CSS FOR DEATAILS PAGE =============================*/
+#header-details {
+	background-color: #1b1e21;
+	box-shadow: 0 2px 5px #1b1e21;
+}
+/*===================================== END CSS FOR DEATAILS PAGE =============================*/
+
 
 
 

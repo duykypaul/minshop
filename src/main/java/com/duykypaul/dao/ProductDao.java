@@ -17,6 +17,7 @@ public class ProductDao implements IProduct {
     @Autowired
     SessionFactory sessionFactory;
 
+    @Override
     @Transactional
     public List<Product> getProductListLimit(Integer startIndex) {
         Session session = sessionFactory.getCurrentSession();
@@ -24,4 +25,14 @@ public class ProductDao implements IProduct {
         List<Product> productList = session.createQuery(sql).setFirstResult(startIndex).setMaxResults(15).getResultList();
         return productList;
     }
+
+    @Override
+    @Transactional
+    public Product getProductById(Integer product_id) {
+        Session session = sessionFactory.getCurrentSession();
+        String sql = "from Product where product_id = " + product_id;
+        Product product = (Product) session.createQuery(sql).getSingleResult();
+        return product;
+    }
+
 }

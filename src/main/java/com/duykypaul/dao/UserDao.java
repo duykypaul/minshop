@@ -17,7 +17,7 @@ public class UserDao implements IUser{
 	@Autowired
 	SessionFactory sessionFactory;
 
-	/*@Override*/
+	@Override
 	@Transactional
 	public Boolean checkLogin(String email, String password) {
 		Session session = sessionFactory.getCurrentSession();
@@ -30,7 +30,7 @@ public class UserDao implements IUser{
 		}
 	}
 
-	/*@Override*/
+	@Override
 	@Transactional
 	public Boolean addUser(User user) {
 		Session session = sessionFactory.getCurrentSession();
