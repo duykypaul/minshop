@@ -21,7 +21,6 @@ public class HomeController {
 	@GetMapping
 	public String Default(ModelMap modelMap) {
 		List<Product> productList = productService.getProductListLimit(0);
-		productList.forEach(item -> System.out.println(item));
 		modelMap.addAttribute("productList", productList);
 		return "home";
 	}

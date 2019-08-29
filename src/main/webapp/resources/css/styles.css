@@ -318,6 +318,10 @@ a.circle-avatar:hover {
 	background-color: #1b1e21;
 	box-shadow: 0 2px 5px #1b1e21;
 }
+
+img {
+	width: 100%;
+}
 /*===================================== END CSS FOR DEATAILS PAGE =============================*/
 
 

@@ -17,7 +17,7 @@ public class Product {
     @JoinColumn(name="product_line_id")
     ProductLine productLine;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name="product_id")
     Set<ProductDetails> productDetailsList;
 

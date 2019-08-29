@@ -95,20 +95,13 @@
 					<h4>${product.getPrice()}</h4>
 					<table>
 						<tbody>
-							<tr>
-								<td>dfghj</td>
-								<td>dfghj</td>
-								<td>dfghj</td>
-								<td>dfghj</td>
-								<td>dfghj</td>
-							</tr>
-							<tr>
-								<td>dfghj</td>
-								<td>dfghj</td>
-								<td>dfghj</td>
-								<td>dfghj</td>
-								<td>dfghj</td>
-							</tr>
+							<c:forEach var="productDetails" items="${product.getProductDetailsList()}">
+								<tr>
+									<td>${productDetails.getProductColor().getName()}</td>
+									<td>${productDetails.getProductSize().getSize()}</td>
+									<td>${productDetails.getQuantity()}</td>
+								</tr>
+							</c:forEach>
 						</tbody>
 					</table>
 				</div>

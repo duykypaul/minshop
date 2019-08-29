@@ -34,5 +34,4 @@ public class ProductDao implements IProduct {
         Product product = (Product) session.createQuery(sql).getSingleResult();
         return product;
     }
-
 }
