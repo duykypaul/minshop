@@ -30,9 +30,9 @@ html, body {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	width: 380px;
+	width: 405px;
 	height: 610px;
-	background-image: url("../image/backgrounddangnhap.png");
+	background-image: url("../image/backgrounddangnhap1.png");
 	padding: 0 16px;
 }
 
@@ -319,8 +319,23 @@ a.circle-avatar:hover {
 	box-shadow: 0 2px 5px #1b1e21;
 }
 
-img {
+#product-details img {
 	width: 100%;
+}
+
+ul {
+	list-style-type: none;
+}
+
+.my-menu {
+	padding: 0;
+	margin: 0;
+}
+
+.my-menu li{
+	font-size: 16px;
+	font-weight: 400;
+	padding: 4px 0px;
 }
 /*===================================== END CSS FOR DEATAILS PAGE =============================*/
 

@@ -69,37 +69,38 @@
     </nav>
 </div>
 
-<div class="container">
+<div id="product-details" class="container">
 	<div class="row">
-		<div class="col-sm-2 col-md-2">
-			<h3>Danh mục sản phẩm</h3>
-			<ul>
-				<li>Áo Thun</li>
-				<li>Áo Khoác</li>
-				<li>Áo Sơ-mi</li>
-				<li>Quần Dài</li>
-				<li>Quần Short</li>
-				<li>Giày</li>
-				<li>Sandal-Dép</li>
-				<li>Balo</li>
+		<div class="col-sm-3 col-md-3">
+			<h3>Danh mục</h3>
+			<ul class="my-menu">
+                <c:forEach var="productLine" items="${productLineList}">
+                    <li><a href="#">${productLine.getName()} </a></li>
+                </c:forEach>
 			</ul>
 		</div>
 
-		<div class="col-sm-8 col-md-8">
-			<div class="row">
-				<div class="col-sm-3 col-md-3">
+		<div class="col-sm-9 col-md-9">
+			<div class="row well" style="margin-top: 20px;">
+				<div class="col-sm-4 col-md-4">
 					<img src="<c:url value="/resources/image/products/${product.getImage()}" />" /><br />
 				</div>
-				<div class="col-sm-9 col-md-9">
+				<div class="col-sm-8 col-md-8">
 					<h3>${product.getName()}</h3>
-					<h4>${product.getPrice()}</h4>
-					<table>
+					<h4 class="price">${product.getPrice()} VNĐ</h4>
+					<table class="table">
+                        <thead>
+                            <td><h5>Màu sản phẩm</h5></td>
+                            <td><h5>Size</h5></td>
+                            <td><h5>Số lượng</h5></td>
+                        </thead>
 						<tbody>
 							<c:forEach var="productDetails" items="${product.getProductDetailsList()}">
 								<tr>
 									<td>${productDetails.getProductColor().getName()}</td>
 									<td>${productDetails.getProductSize().getSize()}</td>
 									<td>${productDetails.getQuantity()}</td>
+                                    <td><buton class="btn btn-success">Thêm vào giỏ</buton></td>
 								</tr>
 							</c:forEach>
 						</tbody>
@@ -108,10 +109,10 @@
 			</div>
 		</div>
 
-		<div class="col-sm-2 col-md-2">
+		<%--<div class="col-sm-2 col-md-2">
 			<h3>Đặc điểm sản phẩm</h3>
 			<span>${product.getDescriptions()}</span>
-		</div>
+		</div>--%>
 	</div>
 </div>
 
