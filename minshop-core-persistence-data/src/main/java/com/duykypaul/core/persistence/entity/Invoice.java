@@ -73,5 +73,4 @@ public class Invoice {
     public void setInvoiceDetailsList(Set<InvoiceDetails> invoiceDetailsList) {
         this.invoiceDetailsList = invoiceDetailsList;
     }
-
 }

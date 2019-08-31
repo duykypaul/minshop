@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +23,7 @@
                         class="icon-bar"></span> <span class="icon-bar"></span> <span
                         class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#"><img
+                <a class="navbar-brand" href="/minshop"><img
                         src="<c:url value="/resources/image/minshop.png" />"/></a>
             </div>
 
@@ -30,7 +31,7 @@
             <div class="collapse navbar-collapse"
                  id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav nav-center">
-                    <li class="active"><a href="#">TRANG CHỦ</a></li>
+                    <li class="active"><a href="/minshop">TRANG CHỦ</a></li>
                     <li class="dropdown"><a href="#" class="dropdown-toggle"
                                             data-toggle="dropdown" role="button" aria-haspopup="true"
                                             aria-expanded="false">SẢN PHẨM <span class="caret"></span></a>
@@ -60,7 +61,7 @@
                     </c:choose>
 
                     <li><a href="#"><img
-                            src="<c:url value="/resources/image/cart-73-16.png" />"/></a></li>
+                            src="<c:url value="/resources/image/cart-73-16.png" />"/> ${shoppingCartList.size()}</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -86,8 +87,10 @@
 					<img src="<c:url value="/resources/image/products/${product.getImage()}" />" /><br />
 				</div>
 				<div class="col-sm-8 col-md-8">
-					<h3>${product.getName()}</h3>
-					<h4 class="price">${product.getPrice()} VNĐ</h4>
+					<h3 id="product_name" data-product-name="${product.getName()}">${product.getName()}</h3>
+					<h4 class="price" id="product_price" data-product-price="${product.getPrice()}">
+                        <fmt:formatNumber type = "number" pattern="###,###" value="${product.getPrice()}" /> VNĐ
+                    </h4>
 					<table class="table">
                         <thead>
                             <td><h5>Màu sản phẩm</h5></td>
@@ -96,11 +99,11 @@
                         </thead>
 						<tbody>
 							<c:forEach var="productDetails" items="${product.getProductDetailsList()}">
-								<tr>
-									<td>${productDetails.getProductColor().getName()}</td>
-									<td>${productDetails.getProductSize().getSize()}</td>
-									<td>${productDetails.getQuantity()}</td>
-                                    <td><buton class="btn btn-success">Thêm vào giỏ</buton></td>
+								<tr class="product" data-product-id="${product.getProduct_id()}">
+									<td class="color" data-color-id="${productDetails.getProductColor().getProduct_color_id()}">${productDetails.getProductColor().getName()}</td>
+									<td class="size" data-size-id="${productDetails.getProductSize().getProduct_size_id()}">${productDetails.getProductSize().getSize()}</td>
+									<td class="quantity" data-quantity="${productDetails.getQuantity()}">${productDetails.getQuantity()}</td>
+                                    <td><buton class="btn btn-success btn-shopping-cart" type="submit">Thêm vào giỏ</buton></td>
 								</tr>
 							</c:forEach>
 						</tbody>

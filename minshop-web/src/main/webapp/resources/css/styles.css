@@ -341,6 +341,9 @@ ul {
 	font-weight: 400;
 	padding: 4px 0px;
 }
+a:hover {
+	text-decoration: none;
+}
 /*===================================== END CSS FOR DEATAILS PAGE =============================*/
 
 
