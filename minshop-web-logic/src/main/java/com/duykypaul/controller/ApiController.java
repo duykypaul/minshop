@@ -30,7 +30,7 @@ public class ApiController {
 
 	@GetMapping("AddToCart")
     @ResponseBody
-	public void addToCart(@RequestParam Integer product_id, @RequestParam String product_name,
+	public String addToCart(@RequestParam Integer product_id, @RequestParam String product_name,
 						  @RequestParam Integer product_color_id, @RequestParam String color_name,
 						  @RequestParam Integer product_size_id, @RequestParam String size_name,
 						  @RequestParam Integer price, @RequestParam Integer quantity, HttpSession httpSession) {
@@ -40,6 +40,7 @@ public class ApiController {
 			List<ShoppingCart> shoppingCartList = new ArrayList<>();
 			shoppingCartList.add(shoppingCart);
 			httpSession.setAttribute("shoppingCartList", shoppingCartList);
+			return ((List<ShoppingCart>) httpSession.getAttribute("shoppingCartList")).size() + "";
 		} else {
 			List<ShoppingCart> shoppingCartList = (List<ShoppingCart>) httpSession.getAttribute("shoppingCartList");
 			Integer index = indexOfProductInShoppingCartList(httpSession, product_id, product_color_id, product_size_id);
@@ -48,6 +49,7 @@ public class ApiController {
 			} else {
 				shoppingCartList.add(shoppingCart);
 			}
+			return shoppingCartList.size() + "";
 		}
 	}
 
@@ -66,7 +68,7 @@ public class ApiController {
 		return -1;
 	}
 
-	@GetMapping("GetSizeOfShoppingCart")
+	/*@GetMapping("GetSizeOfShoppingCart")
 	@ResponseBody
 	public String getSizeOfShoppingCart (HttpSession httpSession) {
 		if (null != httpSession.getAttribute("shoppingCartList")) {
@@ -74,5 +76,5 @@ public class ApiController {
 			return shoppingCartList.size() + "";
 		}
 		return "";
-	}
+	}*/
 }

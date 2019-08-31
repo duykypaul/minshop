@@ -59,8 +59,14 @@ $(document).ready(function () {
                 price: price,
                 quantity: quantity
             },
-            success: function (value) {}
-        }).done(function () {
+            success: function (value) {
+                if(!$("#cart").hasClass("cart")){
+                    $("#cart").addClass("cart");
+                }
+                $("#cart").html("<span>" + value + "</span>");
+            }
+        })
+        /*.done(function () {
             $.ajax({
                 url: "/minshop/api/GetSizeOfShoppingCart",
                 success: function (value) {
@@ -70,6 +76,6 @@ $(document).ready(function () {
                     $("#cart").html("<span>" + value + "</span>");
                 }
             })
-        })
+        })*/
     });
 })
