@@ -23,7 +23,7 @@
                         class="icon-bar"></span> <span class="icon-bar"></span> <span
                         class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/minshop"><img
+                <a class="navbar-brand brand" href="/minshop"><img
                         src="<c:url value="/resources/image/minshop.png" />"/></a>
             </div>
 
@@ -60,8 +60,15 @@
                         </c:otherwise>
                     </c:choose>
 
-                    <li><a href="#"><img
-                            src="<c:url value="/resources/image/cart-73-16.png" />"/> ${shoppingCartList.size()}</a></li>
+                    <li><a href="#">
+                        <img src="<c:url value="/resources/image/cart-73-16.png" />"/>
+                        <div id="cart"
+                                <c:if test="${shoppingCartList.size() > 0}">
+                                    class="cart"
+                                </c:if>>
+                            <span>${shoppingCartList.size()}</span>
+                        </div></a>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -71,52 +78,57 @@
 </div>
 
 <div id="product-details" class="container">
-	<div class="row">
-		<div class="col-sm-2 col-md-2 well container-menu">
-			<h3>Danh mục</h3>
-			<ul class="my-menu">
+    <div class="row">
+        <div class="col-sm-2 col-md-2 well container-menu">
+            <h3>Danh mục</h3>
+            <ul class="my-menu">
                 <c:forEach var="productLine" items="${productLineList}">
                     <li><a href="#">${productLine.getName()} </a></li>
                 </c:forEach>
-			</ul>
-		</div>
+            </ul>
+        </div>
 
-		<div class="col-sm-9 col-md-9">
-			<div class="row well" style="margin-top: 20px;">
-				<div class="col-sm-4 col-md-4">
-					<img src="<c:url value="/resources/image/products/${product.getImage()}" />" /><br />
-				</div>
-				<div class="col-sm-8 col-md-8">
-					<h3 id="product_name" data-product-name="${product.getName()}">${product.getName()}</h3>
-					<h4 class="price" id="product_price" data-product-price="${product.getPrice()}">
-                        <fmt:formatNumber type = "number" pattern="###,###" value="${product.getPrice()}" /> VNĐ
+        <div class="col-sm-9 col-md-9">
+            <div class="row well" style="margin-top: 20px;">
+                <div class="col-sm-4 col-md-4">
+                    <img src="<c:url value="/resources/image/products/${product.getImage()}" />"/><br/>
+                </div>
+                <div class="col-sm-8 col-md-8">
+                    <h3 id="product_name" data-product-name="${product.getName()}">${product.getName()}</h3>
+                    <h4 class="price" id="product_price" data-product-price="${product.getPrice()}">
+                        <fmt:formatNumber type="number" pattern="###,###" value="${product.getPrice()}"/> VNĐ
                     </h4>
-					<table class="table">
+                    <table class="table">
                         <thead>
-                            <td><h5>Màu sản phẩm</h5></td>
-                            <td><h5>Size</h5></td>
-                            <td><h5>Số lượng</h5></td>
+                        <td><h5>Màu sản phẩm</h5></td>
+                        <td><h5>Size</h5></td>
+                        <td><h5>Số lượng</h5></td>
                         </thead>
-						<tbody>
-							<c:forEach var="productDetails" items="${product.getProductDetailsList()}">
-								<tr class="product" data-product-id="${product.getProduct_id()}">
-									<td class="color" data-color-id="${productDetails.getProductColor().getProduct_color_id()}">${productDetails.getProductColor().getName()}</td>
-									<td class="size" data-size-id="${productDetails.getProductSize().getProduct_size_id()}">${productDetails.getProductSize().getSize()}</td>
-									<td class="quantity" data-quantity="${productDetails.getQuantity()}">${productDetails.getQuantity()}</td>
-                                    <td><buton class="btn btn-success btn-shopping-cart" type="submit">Thêm vào giỏ</buton></td>
-								</tr>
-							</c:forEach>
-						</tbody>
-					</table>
-				</div>
-			</div>
-		</div>
+                        <tbody>
+                        <c:forEach var="productDetails" items="${product.getProductDetailsList()}">
+                            <tr class="product" data-product-id="${product.getProduct_id()}">
+                                <td class="color"
+                                    data-color-id="${productDetails.getProductColor().getProduct_color_id()}">${productDetails.getProductColor().getName()}</td>
+                                <td class="size"
+                                    data-size-id="${productDetails.getProductSize().getProduct_size_id()}">${productDetails.getProductSize().getSize()}</td>
+                                <td class="quantity"
+                                    data-quantity="${productDetails.getQuantity()}">${productDetails.getQuantity()}</td>
+                                <td>
+                                    <buton class="btn btn-success btn-shopping-cart">Thêm vào giỏ</buton>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
 
-		<%--<div class="col-sm-2 col-md-2">
-			<h3>Đặc điểm sản phẩm</h3>
-			<span>${product.getDescriptions()}</span>
-		</div>--%>
-	</div>
+        <%--<div class="col-sm-2 col-md-2">
+            <h3>Đặc điểm sản phẩm</h3>
+            <span>${product.getDescriptions()}</span>
+        </div>--%>
+    </div>
 </div>
 
 <div id="footer" class="container-fluid">

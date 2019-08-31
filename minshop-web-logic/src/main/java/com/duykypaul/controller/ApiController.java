@@ -65,4 +65,14 @@ public class ApiController {
 		}
 		return -1;
 	}
+
+	@GetMapping("GetSizeOfShoppingCart")
+	@ResponseBody
+	public String getSizeOfShoppingCart (HttpSession httpSession) {
+		if (null != httpSession.getAttribute("shoppingCartList")) {
+			List<ShoppingCart> shoppingCartList= (List<ShoppingCart>) httpSession.getAttribute("shoppingCartList");
+			return shoppingCartList.size() + "";
+		}
+		return "";
+	}
 }
