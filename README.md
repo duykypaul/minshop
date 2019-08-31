@@ -1,1 +1,1 @@
-# Application minshop use spring Framework
+# Web Application MinShop Using Spring Framework
