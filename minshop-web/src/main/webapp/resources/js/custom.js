@@ -86,6 +86,8 @@ $(document).ready(function () {
         var totalCost = 0;
         $("tbody .price").each(function () {
             var priceLine = $(this).attr("data-price") * $(this).closest("tr").find(".quantity-shopping-cart").val();
+            var format = (priceLine/1000).toFixed(3).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString() + " đ";
+            $(this).html(format);
             totalCost = totalCost + priceLine;
         })
         var format = (totalCost/1000).toFixed(3).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString() + " đ";
@@ -100,5 +102,17 @@ $(document).ready(function () {
         var format = priceLine.toFixed(3).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString();
         $(this).closest("tr").find(".price").html(format + " đ");
         TotalCost();
+        var product_id = $(this).closest("tr").attr("data-product-id");
+        var product_color_id = $(this).closest("tr").find(".color").attr("data-color-id");
+        var product_size_id = $(this).closest("tr").find(".size").attr("data-size-id");
+        $.ajax({
+            url: "/minshop/api/UpdateShoppingCartList",
+            data: {
+                product_id: product_id,
+                product_color_id: product_color_id,
+                product_size_id: product_size_id,
+                quantity: quantity
+            }
+        })
     })
 })

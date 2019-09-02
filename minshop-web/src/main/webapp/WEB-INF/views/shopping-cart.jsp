@@ -28,16 +28,16 @@
             </thead>
             <tbody>
             <c:forEach var="value" items="${shoppingCartList}">
-                <tr>
+                <tr class="product" data-product-id="${value.getProduct_id()}">
                     <td class="image line-product"
-                        data-name="${value.getImage()}">
+                        data-image="${value.getImage()}">
                         <img data-product-image="${product.getImage()}" style="width: 50px;" src="<c:url value="/resources/image/products/${value.getImage()}" />"/>
                     </td>
-                    <td class="name line-product" data-name="${value.getProduct_name()}">${value.getProduct_name()}</td>
+                    <td class="name line-product">${value.getProduct_name()}</td>
 
-                    <td class="color line-product" data-color-name="${value.getColor_name()}">${value.getColor_name()}</td>
+                    <td class="color line-product" data-color-id="${value.getProduct_color_id()}">${value.getColor_name()}</td>
 
-                    <td class="size line-product" data-size-name="${value.getSize_name()}">${value.getSize_name()}</td>
+                    <td class="size line-product" data-size-id="${value.getProduct_size_id()}">${value.getSize_name()}</td>
 
                     <td class="quantity line-product" data-quantity="${value.getQuantity()}">
                         <div><input type="number" min="1" class="quantity-shopping-cart" value="${value.getQuantity()}"/></div>
@@ -55,8 +55,8 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><h5>Thiệt hại:</h5></td>
-                    <td><h5><span id="total-cost" class="price"></span></h5></td>
+                    <td><h4>Thiệt hại:</h4></td>
+                    <td><h4><span id="total-cost" class="price"></span></h4></td>
                 </tr>
             </tfoot>
         </table>

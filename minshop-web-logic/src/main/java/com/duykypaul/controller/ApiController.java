@@ -78,4 +78,16 @@ public class ApiController {
 		}
 		return "";
 	}*/
+
+	@GetMapping("UpdateShoppingCartList")
+	@ResponseBody
+	public void updateShoppingCartList(HttpSession httpSession, @RequestParam Integer product_id,
+									   @RequestParam Integer product_color_id, @RequestParam Integer product_size_id,
+									   @RequestParam Integer quantity) {
+		if(null != httpSession.getAttribute("shoppingCartList")){
+			List<ShoppingCart> shoppingCartList = (List<ShoppingCart>) httpSession.getAttribute("shoppingCartList");
+			Integer index = indexOfProductInShoppingCartList(httpSession, product_id, product_color_id, product_size_id);
+			shoppingCartList.get(index).setQuantity(quantity);
+		}
+	}
 }
