@@ -1,6 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%--
+  Created by IntelliJ IDEA.
+  User: DuyKyPaul
+  Date: 9/2/2019
+  Time: 11:57 AM
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:url var="loginUrl" value="/dang-nhap/"/>
 <c:url var="shoppingCartUrl" value="/gio-hang/"/>
 <nav class="navbar navbar-default none-nav">
@@ -43,8 +49,8 @@
             <ul class="nav navbar-nav navbar-right">
                 <c:choose>
                     <c:when test="${email != null}">
-                        <li><a href="#" class="circle-avatar"><span>${email.substring(0, 1).toUpperCase()}</span></a>
-                        </li>
+                        <li><a href="#"
+                               class="circle-avatar"><span>${email.substring(0, 1).toUpperCase()}</span></a></li>
                     </c:when>
                     <c:otherwise>
                         <li><a href="${loginUrl}">ĐĂNG NHẬP</a></li>
@@ -66,8 +72,4 @@
     </div>
     <!-- /.container-fluid -->
 </nav>
-<div class="event_header container wow rubberBand">
-    <span>Ngày 17/10 - 23/10/2019</span><br/> <span
-        style="font-size: 50px;">MUA 1 TẶNG 1</span><br/>
-    <button class="btn-info">XEM NGAY</button>
-</div>
+
