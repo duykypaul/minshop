@@ -9,6 +9,7 @@ public class ShoppingCart {
     String size_name;
     Integer price;
     Integer quantity;
+    String image;
 
     public Integer getProduct_id() {
         return product_id;
@@ -74,7 +75,16 @@ public class ShoppingCart {
         this.quantity = quantity;
     }
 
-    public ShoppingCart(Integer product_id, String product_name, Integer product_color_id, String color_name, Integer product_size_id, String size_name, Integer price, Integer quantity) {
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public ShoppingCart(Integer product_id, String product_name, Integer product_color_id, String color_name,
+                        Integer product_size_id, String size_name, Integer price, Integer quantity, String image) {
         this.product_id = product_id;
         this.product_name = product_name;
         this.product_color_id = product_color_id;
@@ -83,5 +93,6 @@ public class ShoppingCart {
         this.size_name = size_name;
         this.price = price;
         this.quantity = quantity;
+        this.image = image;
     }
 }

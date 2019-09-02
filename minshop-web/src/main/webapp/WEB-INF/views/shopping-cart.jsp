@@ -67,7 +67,8 @@
                                     class="cart"
                                 </c:if>>
                             <span>${shoppingCartList.size()}</span>
-                        </div></a>
+                        </div>
+                    </a>
                     </li>
                 </ul>
             </div>
@@ -77,57 +78,76 @@
     </nav>
 </div>
 
-<div id="product-details" class="container">
-    <div class="row">
-        <div class="col-sm-2 col-md-2 well container-menu">
-            <h3>Danh mục</h3>
-            <ul class="my-menu">
-                <c:forEach var="productLine" items="${productLineList}">
-                    <li><a href="#">${productLine.getName()} </a></li>
-                </c:forEach>
-            </ul>
-        </div>
+<div id="shopping-cart-detail" class="container">
+    <div class="col-md-7 col-sm-12 well">
+        <table class="table">
+            <thead>
+            <td><h5>Hình ảnh</h5></td>
+            <td><h5>Sản phẩm</h5></td>
+            <td><h5>Màu </h5></td>
+            <td><h5>Size</h5></td>
+            <td><h5>Số lượng</h5></td>
+            <td><h5>Giá tiền</h5></td>
+            </thead>
+            <tbody>
+            <c:forEach var="value" items="${shoppingCartList}">
+                <tr>
+                    <td class="image line-product"
+                        data-name="${value.getImage()}">
+                        <img data-product-image="${product.getImage()}" style="width: 50px;" src="<c:url value="/resources/image/products/${value.getImage()}" />"/>
+                    </td>
+                    <td class="name line-product" data-name="${value.getProduct_name()}">${value.getProduct_name()}</td>
 
-        <div class="col-sm-9 col-md-9">
-            <div class="row well" style="margin-top: 20px;">
-                <div class="col-sm-4 col-md-4">
-                    <img id="image" data-product-image="${product.getImage()}" src="<c:url value="/resources/image/products/${product.getImage()}" />"/><br/>
-                </div>
-                <div class="col-sm-8 col-md-8">
-                    <h3 id="product_name" data-product-name="${product.getName()}">${product.getName()}</h3>
-                    <h4 class="price" id="product_price" data-product-price="${product.getPrice()}">
-                        <fmt:formatNumber type="number" pattern="###,###" value="${product.getPrice()}"/> đ
-                    </h4>
-                    <table class="table">
-                        <thead>
-                        <td><h5>Màu sản phẩm</h5></td>
-                        <td><h5>Size</h5></td>
-                        <td><h5>Số lượng</h5></td>
-                        </thead>
-                        <tbody>
-                        <c:forEach var="productDetails" items="${product.getProductDetailsList()}">
-                            <tr class="product" data-product-id="${product.getProduct_id()}">
-                                <td class="color"
-                                    data-color-id="${productDetails.getProductColor().getProduct_color_id()}">${productDetails.getProductColor().getName()}</td>
-                                <td class="size"
-                                    data-size-id="${productDetails.getProductSize().getProduct_size_id()}">${productDetails.getProductSize().getSize()}</td>
-                                <td class="quantity"
-                                    data-quantity="${productDetails.getQuantity()}">${productDetails.getQuantity()}</td>
-                                <td>
-                                    <buton class="btn btn-success btn-shopping-cart">Thêm vào giỏ</buton>
-                                </td>
-                            </tr>
-                        </c:forEach>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+                    <td class="color line-product" data-color-name="${value.getColor_name()}">${value.getColor_name()}</td>
 
-        <%--<div class="col-sm-2 col-md-2">
-            <h3>Đặc điểm sản phẩm</h3>
-            <span>${product.getDescriptions()}</span>
-        </div>--%>
+                    <td class="size line-product" data-size-name="${value.getSize_name()}">${value.getSize_name()}</td>
+
+                    <td class="quantity line-product" data-quantity="${value.getQuantity()}">
+                        <div><input type="number" min="1" class="quantity-shopping-cart" value="${value.getQuantity()}"/></div>
+                    </td>
+                    <td class="price line-product" data-price="${value.getPrice()}">
+                        <fmt:formatNumber type="number" pattern="###,###" value="${value.getPrice()}"/> đ
+                    </td>
+                    <td class="line-product"><button class="btn-link">X</button></td>
+                </tr>
+            </c:forEach>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><h5>Thiệt hại:</h5></td>
+                    <td><h5><span id="total-cost" class="price"></span></h5></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <div class="col-md-5 col-sm-12">
+        <h3>Thông tin người mua/nhận hàng</h3>
+        <div class="form-group">
+            <label for="user-name">Tên</label>
+            <input type="text" class="form-control" id="user-name" placeholder="Tên người nhận">
+        </div>
+        <div class="form-group">
+            <label for="phone-number">Điện thoại liên lạc</label>
+            <input type="number" class="form-control" id="phone-number" placeholder="Số điện thoại">
+        </div>
+        <div class="radio">
+            <label><input type="radio" name="optradio" checked>Nhận hàng tại nhà/công ty/bưu điện</label>
+        </div>
+        <div class="radio">
+            <label><input type="radio" name="optradio">Nhận hàng tại cửa hàng MinShop</label>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Địa chỉ nhận hàng"/>
+        </div>
+        <div class="form-group">
+            <label for="comment">Ghi chú</label>
+            <textarea class="form-control" rows="3" id="comment"></textarea>
+        </div>
+        <input type="button" class="btn btn-primary" value="ĐẶT HÀNG">
     </div>
 </div>
 

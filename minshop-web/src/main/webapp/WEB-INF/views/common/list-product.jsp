@@ -6,11 +6,11 @@
 <div class="row">
 	<c:forEach var="product" items="${productList}">
 		<div class="col-md-3 col-sm-6">
-			<a href="<c:url value="/chitiet/${product.getProduct_id()}"/> ">
+			<a href="<c:url value="/chi-tiet/${product.getProduct_id()}"/> ">
 				<div class="product wow zoomIn">
 					<img src="<c:url value="/resources/image/products/${product.getImage()}" />" /><br />
 					<span>${product.getName()}</span><br />
-					<span class="price"><fmt:formatNumber type = "number" pattern="###,###" value="${product.getPrice()}" /> VNĐ</span>
+					<span class="price"><fmt:formatNumber type = "number" pattern="###,###" value="${product.getPrice()}" /> đ</span>
 
 				</div>
 			</a>

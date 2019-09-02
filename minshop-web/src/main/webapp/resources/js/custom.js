@@ -11,7 +11,7 @@ $(document).ready(function () {
             success: function (value) {
                 if (value == "true") {
                     currentPath = window.location.href;
-                    window.location = currentPath.replace("dangnhap/", "");
+                    window.location = currentPath.replace("dang-nhap/", "");
                 } else {
                     $("#status_login").html("Đăng nhập thất bại!");
                 }
@@ -46,6 +46,7 @@ $(document).ready(function () {
         var product_size_id = $(this).closest("tr").find(".size").attr("data-size-id");
         var size_name = $(this).closest("tr").find(".size").text();
         var price = $("#product_price").attr("data-product-price");
+        var image = $("#image").attr("data-product-image");
         var quantity = $(this).closest("tr").find(".quantity").attr("data-quantity");
         $.ajax({
             url: "/minshop/api/AddToCart",
@@ -57,7 +58,8 @@ $(document).ready(function () {
                 product_size_id: product_size_id,
                 size_name: size_name,
                 price: price,
-                quantity: quantity
+                quantity: quantity,
+                image: image
             },
             success: function (value) {
                 if(!$("#cart").hasClass("cart")){
@@ -78,4 +80,25 @@ $(document).ready(function () {
             })
         })*/
     });
+
+    TotalCost();
+    function TotalCost(){
+        var totalCost = 0;
+        $("tbody .price").each(function () {
+            var priceLine = $(this).attr("data-price") * $(this).closest("tr").find(".quantity-shopping-cart").val();
+            totalCost = totalCost + priceLine;
+        })
+        var format = (totalCost/1000).toFixed(3).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString() + " đ";
+        $("#total-cost").html(format);
+    }
+
+
+    $(".quantity-shopping-cart").change(function () {
+        var price = $(this).closest("tr").find(".price").attr("data-price");
+        var quantity = $(this).val();
+        var priceLine = price * quantity / 1000;
+        var format = priceLine.toFixed(3).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString();
+        $(this).closest("tr").find(".price").html(format + " đ");
+        TotalCost();
+    })
 })

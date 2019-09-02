@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 
 @Controller
-@RequestMapping("dangnhap/")
+@RequestMapping("dang-nhap/")
 @SessionAttributes("email")
 public class LoginController {
 	@Autowired

@@ -46,11 +46,11 @@
                         </li>
                     </c:when>
                     <c:otherwise>
-                        <li><a href="dangnhap/">ĐĂNG NHẬP</a></li>
+                        <li><a href="dang-nhap/">ĐĂNG NHẬP</a></li>
                     </c:otherwise>
                 </c:choose>
 
-                <li><a href="#">
+                <li><a href="gio-hang/">
                     <img src="<c:url value="/resources/image/cart-73-16.png" />"/>
                     <div id="cart"
                             <c:if test="${shoppingCartList.size() > 0}">
