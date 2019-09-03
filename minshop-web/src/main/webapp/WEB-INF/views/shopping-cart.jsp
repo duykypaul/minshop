@@ -45,7 +45,7 @@
                     <td class="price line-product" data-price="${value.getPrice()}">
                         <fmt:formatNumber type="number" pattern="###,###" value="${value.getPrice()}"/> đ
                     </td>
-                    <td class="line-product"><button class="btn-link">X</button></td>
+                    <td class="line-product"><button class="btn-link remove-product">X</button></td>
                 </tr>
             </c:forEach>
             </tbody>
@@ -56,7 +56,7 @@
                     <td></td>
                     <td></td>
                     <td><h4>Thiệt hại:</h4></td>
-                    <td><h4><span id="total-cost" class="price"></span></h4></td>
+                    <td><h4><span id="total-cost" class="price" type="font-family: cursive;"></span></h4></td>
                 </tr>
             </tfoot>
         </table>

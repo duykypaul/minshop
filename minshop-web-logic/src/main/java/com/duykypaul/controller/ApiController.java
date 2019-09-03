@@ -90,4 +90,17 @@ public class ApiController {
 			shoppingCartList.get(index).setQuantity(quantity);
 		}
 	}
+
+	@GetMapping("RemoveProduct")
+	@ResponseBody
+	public String removeProduct(HttpSession httpSession, @RequestParam Integer product_id,
+									   @RequestParam Integer product_color_id, @RequestParam Integer product_size_id) {
+		List<ShoppingCart> shoppingCartList = new ArrayList<>();
+		if(null != httpSession.getAttribute("shoppingCartList")){
+			shoppingCartList = (List<ShoppingCart>) httpSession.getAttribute("shoppingCartList");
+			Integer index = indexOfProductInShoppingCartList(httpSession, product_id, product_color_id, product_size_id);
+			shoppingCartList.remove(index.intValue());
+		}
+		return shoppingCartList.size() + "";
+	}
 }

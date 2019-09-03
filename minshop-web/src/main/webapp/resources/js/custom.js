@@ -92,9 +92,8 @@ $(document).ready(function () {
         })
         var format = (totalCost/1000).toFixed(3).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString() + " đ";
         $("#total-cost").html(format);
-    }
-
-
+    };
+    
     $(".quantity-shopping-cart").change(function () {
         var price = $(this).closest("tr").find(".price").attr("data-price");
         var quantity = $(this).val();
@@ -114,5 +113,29 @@ $(document).ready(function () {
                 quantity: quantity
             }
         })
+    });
+    
+    $(".remove-product").click(function () {
+        var product_id = $(this).closest("tr").attr("data-product-id");
+        var product_color_id = $(this).closest("tr").find(".color").attr("data-color-id");
+        var product_size_id = $(this).closest("tr").find(".size").attr("data-size-id");
+        var ele = $(this).closest("tr");
+        $.ajax({
+            url: "/minshop/api/RemoveProduct",
+            data: {
+                product_id: product_id,
+                product_color_id: product_color_id,
+                product_size_id: product_size_id
+            },
+            success: function (value) {
+                ele.remove();
+                TotalCost();
+                $("#cart").html("<span>" + value + "</span>");
+                if(value == "0"){
+                    $("#cart").removeClass("cart");
+                    $("#cart").html("");
+                }
+            }
+        });
     })
 })

@@ -57,7 +57,10 @@
                             <c:if test="${shoppingCartList.size() > 0}">
                                 class="cart"
                             </c:if>>
-                        <span>${shoppingCartList.size()}</span>
+                        <span><c:if test="${shoppingCartList.size() > 0}">
+                            ${shoppingCartList.size()}
+                        </c:if>
+                        </span>
                     </div></a>
                 </li>
             </ul>
