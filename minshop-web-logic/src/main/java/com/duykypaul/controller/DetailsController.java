@@ -28,5 +28,4 @@ public class DetailsController {
 		modelMap.addAttribute("productLineList", productLineList);
 		return "details";
 	}
-
 }

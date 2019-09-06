@@ -28,7 +28,7 @@
             </thead>
             <tbody>
             <c:forEach var="value" items="${shoppingCartList}">
-                <tr class="product" data-product-id="${value.getProduct_id()}">
+                <tr class="product" data-product-id="${value.getProduct_id()}" data-product-details-id="${value.getProduct_details_id()}">
                     <td class="image line-product"
                         data-image="${value.getImage()}">
                         <img data-product-image="${product.getImage()}" style="width: 50px;" src="<c:url value="/resources/image/products/${value.getImage()}" />"/>
@@ -63,28 +63,30 @@
     </div>
     <div class="col-md-5 col-sm-12">
         <h3>Thông tin người mua/nhận hàng</h3>
-        <div class="form-group">
-            <label for="user-name">Tên</label>
-            <input type="text" class="form-control" id="user-name" placeholder="Tên người nhận">
-        </div>
-        <div class="form-group">
-            <label for="phone-number">Điện thoại liên lạc</label>
-            <input type="number" class="form-control" id="phone-number" placeholder="Số điện thoại">
-        </div>
-        <div class="radio">
-            <label><input type="radio" name="optradio" checked>Nhận hàng tại nhà/công ty/bưu điện</label>
-        </div>
-        <div class="radio">
-            <label><input type="radio" name="optradio">Nhận hàng tại cửa hàng MinShop</label>
-        </div>
-        <div class="form-group">
-            <input type="text" class="form-control" placeholder="Địa chỉ nhận hàng"/>
-        </div>
-        <div class="form-group">
-            <label for="comment">Ghi chú</label>
-            <textarea class="form-control" rows="3" id="comment"></textarea>
-        </div>
-        <input type="button" class="btn btn-primary" value="ĐẶT HÀNG">
+        <form action="" method="post">
+            <div class="form-group">
+                <label for="customer_name">Tên</label>
+                <input type="text" class="form-control" id="customer_name" name="customer_name" placeholder="Tên người nhận">
+            </div>
+            <div class="form-group">
+                <label for="phone-number">Điện thoại liên lạc</label>
+                <input type="number" class="form-control" id="phone-number" name="phone_number" placeholder="Số điện thoại">
+            </div>
+            <div class="radio">
+                <label><input type="radio" name="form_of_delivery" checked>Nhận hàng tại nhà/công ty/bưu điện</label>
+            </div>
+            <div class="radio">
+                <label><input type="radio" name="form_of_delivery">Nhận hàng tại cửa hàng MinShop</label>
+            </div>
+            <div class="form-group">
+                <input id="delivery-address" type="text" class="form-control" name="delivery_address" placeholder="Địa chỉ nhận hàng"/>
+            </div>
+            <div class="form-group">
+                <label for="comment">Ghi chú</label>
+                <textarea class="form-control" rows="3" id="comment" name="comment"></textarea>
+            </div>
+            <input id="ordered" type="button" class="btn btn-primary" value="ĐẶT HÀNG">
+        </form>
     </div>
 </div>
 

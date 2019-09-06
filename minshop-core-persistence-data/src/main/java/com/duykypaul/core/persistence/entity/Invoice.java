@@ -13,6 +13,8 @@ public class Invoice {
     String delivery_address;
     Boolean status;
     String invoice_creation_date;
+    String form_of_delivery;
+    String comment;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name="id")
@@ -72,5 +74,32 @@ public class Invoice {
 
     public void setInvoiceDetailsList(Set<InvoiceDetails> invoiceDetailsList) {
         this.invoiceDetailsList = invoiceDetailsList;
+    }
+
+    public String getForm_of_delivery() {
+        return form_of_delivery;
+    }
+
+    public void setForm_of_delivery(String form_of_delivery) {
+        this.form_of_delivery = form_of_delivery;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public Invoice(String customer_name, String phone_number, String delivery_address, String form_of_delivery, String comment) {
+        this.customer_name = customer_name;
+        this.phone_number = phone_number;
+        this.delivery_address = delivery_address;
+        this.form_of_delivery = form_of_delivery;
+        this.comment = comment;
+    }
+
+    public Invoice() {
     }
 }

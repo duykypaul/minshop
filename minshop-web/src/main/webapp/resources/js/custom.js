@@ -48,6 +48,7 @@ $(document).ready(function () {
         var price = $("#product_price").attr("data-product-price");
         var image = $("#image").attr("data-product-image");
         var quantity = $(this).closest("tr").find(".quantity").attr("data-quantity");
+        var product_details_id = $(this).attr("data-product-details-id");
         $.ajax({
             url: "/minshop/api/AddToCart",
             data: {
@@ -59,7 +60,8 @@ $(document).ready(function () {
                 size_name: size_name,
                 price: price,
                 quantity: quantity,
-                image: image
+                image: image,
+                product_details_id : product_details_id
             },
             success: function (value) {
                 if(!$("#cart").hasClass("cart")){
@@ -137,5 +139,9 @@ $(document).ready(function () {
                 }
             }
         });
+    });
+
+    $("#ordered").click(function () {
+        alert($("#phone-number").val() + " " + $("#delivery-address").val() + " " + $("#customer_name").val());
     })
 })

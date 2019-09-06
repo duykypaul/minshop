@@ -10,5 +10,29 @@ public class InvoiceDetails {
     InvoiceDetailsId invoiceDetailsId;
 
     Integer quantity;
-    Integer price;
+    String price;
+
+    public InvoiceDetailsId getInvoiceDetailsId() {
+        return invoiceDetailsId;
+    }
+
+    public void setInvoiceDetailsId(InvoiceDetailsId invoiceDetailsId) {
+        this.invoiceDetailsId = invoiceDetailsId;
+    }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
 }

@@ -36,5 +36,4 @@ public class UserDao implements IUser {
 		Integer user_id = (Integer) session.save(user);
 		return user_id > 0;
 	}
-	
 }

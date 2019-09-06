@@ -57,17 +57,20 @@
                     </c:otherwise>
                 </c:choose>
 
-                <li><a href="${shoppingCartUrl}">
-                    <img src="<c:url value="/resources/image/cart-73-16.png" />"/>
-                    <div id="cart"
-                            <c:if test="${shoppingCartList.size() > 0}">
-                                class="cart"
-                            </c:if>>
-                        <span><c:if test="${shoppingCartList.size() > 0}">
-                            ${shoppingCartList.size()}
-                            </c:if>
-                        </span>
-                    </div></a>
+                <li>
+                    <a href="${shoppingCartUrl}">
+                        <img src="<c:url value="/resources/image/cart-73-16.png" />"/>
+                        <div id="cart"
+                                <c:if test="${shoppingCartList.size() > 0}">
+                                    class="cart"
+                                </c:if>>
+                            <span>
+                                <c:if test="${shoppingCartList.size() > 0}">
+                                    ${shoppingCartList.size()}
+                                </c:if>
+                            </span>
+                        </div>
+                    </a>
                 </li>
             </ul>
         </div>

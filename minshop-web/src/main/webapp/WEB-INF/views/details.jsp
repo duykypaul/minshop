@@ -52,7 +52,7 @@
                                 <td class="quantity"
                                     data-quantity="${productDetails.getQuantity()}">${productDetails.getQuantity()}</td>
                                 <td>
-                                    <buton class="btn btn-success btn-shopping-cart">Thêm vào giỏ</buton>
+                                    <buton data-product-details-id="${productDetails.getProduct_details_id()}" class="btn btn-success btn-shopping-cart">Thêm vào giỏ</buton>
                                 </td>
                             </tr>
                         </c:forEach>

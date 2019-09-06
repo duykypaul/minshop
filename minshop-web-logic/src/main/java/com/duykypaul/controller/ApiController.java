@@ -31,12 +31,13 @@ public class ApiController {
 	@GetMapping("AddToCart")
     @ResponseBody
 	public String addToCart(@RequestParam Integer product_id, @RequestParam String product_name,
-						  @RequestParam Integer product_color_id, @RequestParam String color_name,
-						  @RequestParam Integer product_size_id, @RequestParam String size_name,
-						  @RequestParam Integer price, @RequestParam Integer quantity,
-							@RequestParam String image, HttpSession httpSession) {
+						    @RequestParam Integer product_color_id, @RequestParam String color_name,
+						    @RequestParam Integer product_size_id, @RequestParam String size_name,
+						    @RequestParam Integer price, @RequestParam Integer quantity,
+                            @RequestParam String image, @RequestParam Integer product_details_id,
+                            HttpSession httpSession) {
 		ShoppingCart shoppingCart = new ShoppingCart(product_id, product_name, product_color_id, color_name,
-				product_size_id, size_name, price, 1, image);
+				product_size_id, size_name, price, 1, image, product_details_id);
 		if(null == httpSession.getAttribute("shoppingCartList")){
 			List<ShoppingCart> shoppingCartList = new ArrayList<>();
 			shoppingCartList.add(shoppingCart);
