@@ -140,8 +140,4 @@ $(document).ready(function () {
             }
         });
     });
-
-    $("#ordered").click(function () {
-        alert($("#phone-number").val() + " " + $("#delivery-address").val() + " " + $("#customer_name").val());
-    })
 })

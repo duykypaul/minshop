@@ -73,10 +73,10 @@
                 <input type="number" class="form-control" id="phone-number" name="phone_number" placeholder="Số điện thoại">
             </div>
             <div class="radio">
-                <label><input type="radio" name="form_of_delivery" checked>Nhận hàng tại nhà/công ty/bưu điện</label>
+                <label><input type="radio" name="form_of_delivery" checked value="Nhận hàng tại nhà/công ty/bưu điện">Nhận hàng tại nhà/công ty/bưu điện</label>
             </div>
             <div class="radio">
-                <label><input type="radio" name="form_of_delivery">Nhận hàng tại cửa hàng MinShop</label>
+                <label><input type="radio" name="form_of_delivery" value="Nhận hàng tại cửa hàng MinShop">Nhận hàng tại cửa hàng MinShop</label>
             </div>
             <div class="form-group">
                 <input id="delivery-address" type="text" class="form-control" name="delivery_address" placeholder="Địa chỉ nhận hàng"/>
@@ -85,7 +85,7 @@
                 <label for="comment">Ghi chú</label>
                 <textarea class="form-control" rows="3" id="comment" name="comment"></textarea>
             </div>
-            <input id="ordered" type="button" class="btn btn-primary" value="ĐẶT HÀNG">
+            <input id="ordered" type="submit" class="btn btn-primary" value="ĐẶT HÀNG">
         </form>
     </div>
 </div>

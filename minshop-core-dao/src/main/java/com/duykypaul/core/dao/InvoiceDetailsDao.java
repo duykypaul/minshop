@@ -1,7 +1,8 @@
 package com.duykypaul.core.dao;
 
-import com.duykypaul.core.inf.IInvoice;
-import com.duykypaul.core.persistence.entity.Invoice;
+import com.duykypaul.core.inf.IInvoiceDetails;
+import com.duykypaul.core.persistence.entity.InvoiceDetails;
+import com.duykypaul.core.persistence.entity.InvoiceDetailsId;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,15 +13,15 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 @Scope(proxyMode = ScopedProxyMode.TARGET_CLASS)
-public class InvoiceDao implements IInvoice {
+public class InvoiceDetailsDao implements IInvoiceDetails {
     @Autowired
     SessionFactory sessionFactory;
 
     @Override
     @Transactional
-    public Integer addInvoice(Invoice invoice) {
+    public Boolean addInvoiceDetails(InvoiceDetails invoiceDetails) {
         Session session = sessionFactory.getCurrentSession();
-        Integer id =  (Integer) session.save(invoice);
-        return id > 0 ? id : 0;
+        InvoiceDetailsId id =  (InvoiceDetailsId) session.save(invoiceDetails);
+        return id != null;
     }
 }

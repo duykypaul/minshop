@@ -10,7 +10,7 @@ public class InvoiceDetails {
     InvoiceDetailsId invoiceDetailsId;
 
     Integer quantity;
-    String price;
+    Integer price;
 
     public InvoiceDetailsId getInvoiceDetailsId() {
         return invoiceDetailsId;
@@ -28,11 +28,17 @@ public class InvoiceDetails {
         this.quantity = quantity;
     }
 
-    public String getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(Integer price) {
+        this.price = price;
+    }
+
+    public InvoiceDetails(InvoiceDetailsId invoiceDetailsId, Integer quantity, Integer price) {
+        this.invoiceDetailsId = invoiceDetailsId;
+        this.quantity = quantity;
         this.price = price;
     }
 }

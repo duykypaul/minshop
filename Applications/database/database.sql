@@ -114,3 +114,5 @@ alter table product modify image varchar(50) null;
 ALTER TABLE `minshop`.`invoice`
 ADD COLUMN `form_of_delivery` VARCHAR(45) NULL AFTER `invoice_creation_date`,
 ADD COLUMN `comment` TEXT NULL AFTER `form_of_delivery`;
+
+ALTER TABLE invoice_details modify price int null;

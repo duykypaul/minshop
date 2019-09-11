@@ -24,4 +24,9 @@ public class InvoiceDetailsId implements Serializable {
     public void setProduct_details_id(Integer product_details_id) {
         this.product_details_id = product_details_id;
     }
+
+    public InvoiceDetailsId(Integer invoice_id, Integer product_details_id) {
+        this.invoice_id = invoice_id;
+        this.product_details_id = product_details_id;
+    }
 }
