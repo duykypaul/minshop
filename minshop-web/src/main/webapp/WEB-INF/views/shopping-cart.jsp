@@ -63,7 +63,7 @@
     </div>
     <div class="col-md-5 col-sm-12">
         <h3>Thông tin người mua/nhận hàng</h3>
-        <form action="" method="post">
+        <form action="/minshop" method="post">
             <div class="form-group">
                 <label for="customer_name">Tên</label>
                 <input type="text" class="form-control" id="customer_name" name="customer_name" placeholder="Tên người nhận">

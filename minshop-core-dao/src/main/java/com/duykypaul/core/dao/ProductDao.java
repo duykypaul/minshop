@@ -34,4 +34,13 @@ public class ProductDao implements IProduct {
         Product product = (Product) session.createQuery(sql).getSingleResult();
         return product;
     }
+
+    @Override
+    @Transactional
+    public List<Product> getProductListById(Integer product_line_id) {
+        Session session = sessionFactory.getCurrentSession();
+        String sql = "from Product where product_line_id = " + product_line_id;
+        List<Product> productList = session.createQuery(sql).getResultList();
+        return productList;
+    }
 }

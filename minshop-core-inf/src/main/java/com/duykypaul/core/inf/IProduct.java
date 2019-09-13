@@ -7,4 +7,5 @@ import java.util.List;
 public interface IProduct {
     List<Product> getProductListLimit(Integer startIndex);
     Product getProductById(Integer product_id);
+    List<Product> getProductListById(Integer id);
 }

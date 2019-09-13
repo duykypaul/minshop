@@ -29,7 +29,7 @@ public class ShoppingCartController {
     }
 
     @PostMapping
-    public String addInvoice(@RequestParam String customer_name, @RequestParam String phone_number,
+    public void addInvoice(@RequestParam String customer_name, @RequestParam String phone_number,
                              @RequestParam String delivery_address, @RequestParam String form_of_delivery,
                              @RequestParam String comment, HttpSession httpSession) {
         if (null != httpSession.getAttribute("shoppingCartList")) {
@@ -46,6 +46,8 @@ public class ShoppingCartController {
                 System.out.println("add invoice failed");
             }
         }
-        return "redirect:home";
+
     }
+
+
 }

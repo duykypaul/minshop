@@ -11,15 +11,9 @@
 					<img src="<c:url value="/resources/image/products/${product.getImage()}" />" /><br />
 					<span>${product.getName()}</span><br />
 					<span class="price"><fmt:formatNumber type = "number" pattern="###,###" value="${product.getPrice()}" /> đ</span>
-
 				</div>
 			</a>
 		</div>
 	</c:forEach>
 </div>
-<%--<fmt:formatNumber type = "number" pattern="###,###" value="${product.getPrice()}" /> VNĐ--%>
-<%--<fmt:setLocale value = "vi_VN"/>
- <fmt:formatNumber value = "${product.getPrice()}" type = "currency"/>--%>
-<%--
-<fmt:setLocale value="fr_CA"/>
-<strong><fmt:formatNumber value="${accountBalance}" type="currency"/></strong>--%>
+

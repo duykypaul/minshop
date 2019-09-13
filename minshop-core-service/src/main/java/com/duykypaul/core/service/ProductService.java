@@ -22,4 +22,9 @@ public class ProductService implements IProduct {
     public Product getProductById(Integer product_id) {
         return productDao.getProductById(product_id);
     }
+
+    @Override
+    public List<Product> getProductListById(Integer id) {
+        return productDao.getProductListById(id);
+    }
 }

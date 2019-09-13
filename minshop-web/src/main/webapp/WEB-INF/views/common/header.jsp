@@ -27,13 +27,13 @@
                                         data-toggle="dropdown" role="button" aria-haspopup="true"
                                         aria-expanded="false">SẢN PHẨM <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">One more separated link</a></li>
+                        <c:forEach var="productLine" items="${productLineList}">
+                            <li ><a href="<c:url value="/san-pham/${productLine.getProduct_line_id()}"/>"
+                                    style="color: #333 !important; font-weight: 700;">
+                                    ${productLine.getName()} </a>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                        </c:forEach>
                     </ul>
                 </li>
                 <li><a href="#">DỊCH VỤ</a></li>
