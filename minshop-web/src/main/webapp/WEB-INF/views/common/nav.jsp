@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@include file="../taglib/taglib.jsp"%>
 <c:url var="loginUrl" value="/dang-nhap/"/>
 <c:url var="shoppingCartUrl" value="/gio-hang/"/>
 <nav class="navbar navbar-default none-nav">
@@ -34,7 +34,10 @@
                                         aria-expanded="false">SẢN PHẨM <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <c:forEach var="productLine" items="${productLineList}">
-                            <li ><a href="#" style="color: #333 !important; font-weight: 700;">${productLine.getName()} </a></li>
+                            <li ><a href="<c:url value="/san-pham/${productLine.getProduct_line_id()}"/>"
+                                    style="color: #333 !important; font-weight: 700;">
+                                    ${productLine.getName()} </a>
+                            </li>
                             <li role="separator" class="divider"></li>
                         </c:forEach>
                     </ul>

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@include file="../taglib/taglib.jsp"%>
 
 <div class="row">
 	<div class="col-12 col-sm-4 col-md-4">
