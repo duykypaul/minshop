@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/admin-home")
+@RequestMapping("/admin/home")
 public class DashboardController {
     @GetMapping
     public String Default(){

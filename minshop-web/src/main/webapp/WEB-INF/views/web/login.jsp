@@ -1,4 +1,4 @@
-<%@include file="../taglib/taglib.jsp"%>
+<%@include file="../../taglib/taglib.jsp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -7,7 +7,7 @@
 
 <meta charset="UTF-8">
 <title>Đăng nhập</title>
-<jsp:include page="../taglib/web/header.jsp"/>
+<jsp:include page="../../taglib/web/header.jsp"/>
 </head>
 <body id="body-login">
 	<div id="body-flex-login">
@@ -50,6 +50,6 @@
 			</div>
 		</div>
 	</div>
-	<jsp:include page="../taglib/web/footer.jsp"/>
+	<jsp:include page="../../taglib/web/footer.jsp"/>
 </body>
 </html>

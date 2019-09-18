@@ -7,7 +7,7 @@
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
-<%@include file="../taglib/taglib.jsp" %>
+<%@include file="../../taglib/taglib.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,12 +18,12 @@
     <meta name="author" content="">
     <title>Admin MinShop</title>
     <link rel="shortcut icon" href="<c:url value="/resources/image/logo.jpg" />">
-    <jsp:include page="../taglib/admin/header.jsp"/>
+    <jsp:include page="../../taglib/admin/header.jsp"/>
 </head>
 <body>
 <div id="wrapper">
     <!-- Navigation -->
-    <jsp:include page="../common/admin/header.jsp"/>
+    <jsp:include page="../../common/admin/header.jsp"/>
     <div id="page-wrapper">
         <div class="container-fluid">
             <div class="row">
@@ -634,6 +634,6 @@
 
 </div>
 
-<jsp:include page="../taglib/admin/footer.jsp" />
+<jsp:include page="../../taglib/admin/footer.jsp" />
 </body>
 </html>
