@@ -30,7 +30,7 @@ public class HomeController {
 		List<ProductLine> productLineList = productLineService.getProductLineList();
 		modelMap.addAttribute("productList", productList);
 		httpSession.setAttribute("productLineList", productLineList);
-		return "home";
+		return "web/home";
 	}
 	
 }

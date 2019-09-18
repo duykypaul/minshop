@@ -25,7 +25,7 @@ public class ShoppingCartController {
 
     @GetMapping
     public String Default() {
-        return "shopping-cart";
+        return "web/shopping-cart";
     }
 
     @PostMapping

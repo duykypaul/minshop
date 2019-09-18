@@ -24,7 +24,7 @@ public class LoginController {
 
 	@GetMapping
 	public String Default() {
-		return "login";
+		return "web/login";
 	}
 
 	@PostMapping

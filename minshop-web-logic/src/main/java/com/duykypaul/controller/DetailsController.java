@@ -19,6 +19,6 @@ public class DetailsController {
 	public String Default(@PathVariable Integer product_id, ModelMap modelMap) {
 		Product product = productService.getProductById(product_id);
 		modelMap.addAttribute("product", product);
-		return "details";
+		return "web/details";
 	}
 }

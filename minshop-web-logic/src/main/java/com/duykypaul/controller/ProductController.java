@@ -21,6 +21,6 @@ public class ProductController {
     public String Default(@PathVariable Integer product_line_id, ModelMap modelMap) {
         List<Product> productList = productService.getProductListById(product_line_id);
         modelMap.addAttribute("productList", productList);
-        return "product";
+        return "web/product";
     }
 }
