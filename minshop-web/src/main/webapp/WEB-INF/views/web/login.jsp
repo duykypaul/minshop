@@ -4,10 +4,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-<meta charset="UTF-8">
-<title>Đăng nhập</title>
-<jsp:include page="../../taglib/web/header.jsp"/>
 </head>
 <body id="body-login">
 	<div id="body-flex-login">
@@ -50,6 +46,5 @@
 			</div>
 		</div>
 	</div>
-	<jsp:include page="../../taglib/web/footer.jsp"/>
 </body>
 </html>

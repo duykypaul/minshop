@@ -45,7 +45,6 @@
 
     <dec:body/>
 
-    <%@ include file="../taglib/admin/footer.jsp" %>
     <!-- jQuery -->
     <script src="<c:url value="/resources/js/jquery-3.4.1.min.js" />"></script>
     <!-- Bootstrap Core JavaScript -->
@@ -58,6 +57,5 @@
     <script src="<c:url value="/resources/js/morris-data.js" />"></script>
     <!-- Custom Theme JavaScript -->
     <script src="<c:url value="/resources/js/startmin.js" />"></script>
-
 </body>
 </html>
