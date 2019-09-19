@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@include file="../../views/taglib/taglib.jsp"%>
+<%@include file="../../taglib/taglib.jsp"%>
 <c:url var="loginUrl" value="/dang-nhap/"/>
 <c:url var="shoppingCartUrl" value="/gio-hang/"/>
 <nav class="navbar navbar-default none-nav">

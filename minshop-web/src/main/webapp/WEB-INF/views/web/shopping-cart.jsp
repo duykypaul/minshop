@@ -15,7 +15,7 @@
 </div>
 
 <div id="shopping-cart-detail" class="container">
-    <div class="col-md-7 col-sm-12 well">
+    <div class="col-md-8 col-sm-12 well">
         <table class="table">
             <thead>
             <td><h5>Hình ảnh</h5></td>
@@ -60,7 +60,7 @@
             </tfoot>
         </table>
     </div>
-    <div class="col-md-5 col-sm-12">
+    <div class="col-md-4 col-sm-12">
         <h3>Thông tin người mua/nhận hàng</h3>
         <form action="/minshop" method="post">
             <div class="form-group">

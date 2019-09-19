@@ -11,19 +11,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
     <title>Admin MinShop</title>
-    <link rel="shortcut icon" href="<c:url value="/resources/image/logo.jpg" />">
-    <jsp:include page="../../taglib/admin/header.jsp"/>
 </head>
 <body>
 <div id="wrapper">
-    <!-- Navigation -->
-    <jsp:include page="../../common/admin/header.jsp"/>
     <div id="page-wrapper">
         <div class="container-fluid">
             <div class="row">
@@ -614,10 +605,10 @@
                                 <input id="btn-input" type="text" class="form-control input-sm"
                                        placeholder="Type your message here..."/>
                                 <span class="input-group-btn">
-                                                <button class="btn btn-warning btn-sm" id="btn-chat">
-                                                    Send
-                                                </button>
-                                            </span>
+                                    <button class="btn btn-warning btn-sm" id="btn-chat">
+                                        Send
+                                    </button>
+                                </span>
                             </div>
                         </div>
                         <!-- /.panel-footer -->
@@ -633,7 +624,5 @@
     <!-- /#page-wrapper -->
 
 </div>
-
-<jsp:include page="../../taglib/admin/footer.jsp" />
 </body>
 </html>
