@@ -6,94 +6,321 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="navbar-header">
-        <a class="navbar-brand" href="/minshop/admin/home">MinShop</a>
-    </div>
+<div id="navbar" class="navbar navbar-default ace-save-state" style="height: 45px;">
+    <div class="navbar-container ace-save-state" id="navbar-container">
+        <button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler" data-target="#sidebar">
+            <span class="sr-only">Toggle sidebar</span>
 
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-    </button>
+            <span class="icon-bar"></span>
 
-    <ul class="nav navbar-nav navbar-left navbar-top-links">
-        <li><a href="/minshop"><i class="fa fa-home fa-fw"></i> Website</a></li>
-    </ul>
+            <span class="icon-bar"></span>
 
-    <ul class="nav navbar-right navbar-top-links">
-        <li class="dropdown navbar-inverse">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                <i class="fa fa-bell fa-fw"></i> <b class="caret"></b>
+            <span class="icon-bar"></span>
+        </button>
+
+        <div class="navbar-header pull-left">
+            <a href="index.html" class="navbar-brand">
+                <small>
+                    <i class="fa fa-leaf"></i>
+                    Ace Admin
+                </small>
             </a>
-            <ul class="dropdown-menu dropdown-alerts">
-                <li>
-                    <a href="#">
-                        <div>
-                            <i class="fa fa-comment fa-fw"></i> New Comment
-                            <span class="pull-right text-muted small">4 minutes ago</span>
-                        </div>
+        </div>
+
+        <div class="navbar-buttons navbar-header pull-right" role="navigation">
+            <ul class="nav ace-nav" style="">
+                <li class="grey dropdown-modal">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <i class="ace-icon fa fa-tasks"></i>
+                        <span class="badge badge-grey">4</span>
                     </a>
+
+                    <ul class="dropdown-menu-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
+                        <li class="dropdown-header">
+                            <i class="ace-icon fa fa-check"></i>
+                            4 Tasks to complete
+                        </li>
+
+                        <li class="dropdown-content ace-scroll" style="position: relative;"><div class="scroll-track" style="display: none;"><div class="scroll-bar"></div></div><div class="scroll-content" style="max-height: 200px;">
+                            <ul class="dropdown-menu dropdown-navbar">
+                                <li>
+                                    <a href="#">
+                                        <div class="clearfix">
+                                            <span class="pull-left">Software Update</span>
+                                            <span class="pull-right">65%</span>
+                                        </div>
+
+                                        <div class="progress progress-mini">
+                                            <div style="width:65%" class="progress-bar"></div>
+                                        </div>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        <div class="clearfix">
+                                            <span class="pull-left">Hardware Upgrade</span>
+                                            <span class="pull-right">35%</span>
+                                        </div>
+
+                                        <div class="progress progress-mini">
+                                            <div style="width:35%" class="progress-bar progress-bar-danger"></div>
+                                        </div>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        <div class="clearfix">
+                                            <span class="pull-left">Unit Testing</span>
+                                            <span class="pull-right">15%</span>
+                                        </div>
+
+                                        <div class="progress progress-mini">
+                                            <div style="width:15%" class="progress-bar progress-bar-warning"></div>
+                                        </div>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        <div class="clearfix">
+                                            <span class="pull-left">Bug Fixes</span>
+                                            <span class="pull-right">90%</span>
+                                        </div>
+
+                                        <div class="progress progress-mini progress-striped active">
+                                            <div style="width:90%" class="progress-bar progress-bar-success"></div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div></li>
+
+                        <li class="dropdown-footer">
+                            <a href="#">
+                                See tasks with details
+                                <i class="ace-icon fa fa-arrow-right"></i>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
-                <li>
-                    <a href="#">
-                        <div>
-                            <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                            <span class="pull-right text-muted small">12 minutes ago</span>
-                        </div>
+
+                <li class="purple dropdown-modal">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false">
+                        <i class="ace-icon fa fa-bell"></i>
+                        <span class="badge badge-important">8</span>
                     </a>
+
+                    <ul class="dropdown-menu-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-close" style="">
+                        <li class="dropdown-header">
+                            <i class="ace-icon fa fa-exclamation-triangle"></i>
+                            8 Notifications
+                        </li>
+
+                        <li class="dropdown-content ace-scroll" style="position: relative;"><div class="scroll-track" style="display: none;"><div class="scroll-bar"></div></div><div class="scroll-content" style="">
+                            <ul class="dropdown-menu dropdown-navbar navbar-pink">
+                                <li>
+                                    <a href="#">
+                                        <div class="clearfix">
+													<span class="pull-left">
+														<i class="btn btn-xs no-hover btn-pink fa fa-comment"></i>
+														New Comments
+													</span>
+                                            <span class="pull-right badge badge-info">+12</span>
+                                        </div>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        <i class="btn btn-xs btn-primary fa fa-user"></i>
+                                        Bob just signed up as an editor ...
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        <div class="clearfix">
+													<span class="pull-left">
+														<i class="btn btn-xs no-hover btn-success fa fa-shopping-cart"></i>
+														New Orders
+													</span>
+                                            <span class="pull-right badge badge-success">+8</span>
+                                        </div>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        <div class="clearfix">
+													<span class="pull-left">
+														<i class="btn btn-xs no-hover btn-info fa fa-twitter"></i>
+														Followers
+													</span>
+                                            <span class="pull-right badge badge-info">+11</span>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div></li>
+
+                        <li class="dropdown-footer">
+                            <a href="#">
+                                See all notifications
+                                <i class="ace-icon fa fa-arrow-right"></i>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
-                <li>
-                    <a href="#">
-                        <div>
-                            <i class="fa fa-envelope fa-fw"></i> Message Sent
-                            <span class="pull-right text-muted small">4 minutes ago</span>
-                        </div>
+
+                <li class="green dropdown-modal">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false">
+                        <i class="ace-icon fa fa-envelope"></i>
+                        <span class="badge badge-success">5</span>
                     </a>
+
+                    <ul class="dropdown-menu-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close" style="">
+                        <li class="dropdown-header">
+                            <i class="ace-icon fa fa-envelope-o"></i>
+                            5 Messages
+                        </li>
+
+                        <li class="dropdown-content ace-scroll" style="position: relative;"><div class="scroll-track" style="display: none;"><div class="scroll-bar"></div></div><div class="scroll-content" style="">
+                            <ul class="dropdown-menu dropdown-navbar">
+                                <li>
+                                    <a href="#" class="clearfix">
+                                        <img src="assets/images/avatars/avatar.png" class="msg-photo" alt="Alex's Avatar">
+                                        <span class="msg-body">
+													<span class="msg-title">
+														<span class="blue">Alex:</span>
+														Ciao sociis natoque penatibus et auctor ...
+													</span>
+
+													<span class="msg-time">
+														<i class="ace-icon fa fa-clock-o"></i>
+														<span>a moment ago</span>
+													</span>
+												</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#" class="clearfix">
+                                        <img src="assets/images/avatars/avatar3.png" class="msg-photo" alt="Susan's Avatar">
+                                        <span class="msg-body">
+													<span class="msg-title">
+														<span class="blue">Susan:</span>
+														Vestibulum id ligula porta felis euismod ...
+													</span>
+
+													<span class="msg-time">
+														<i class="ace-icon fa fa-clock-o"></i>
+														<span>20 minutes ago</span>
+													</span>
+												</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#" class="clearfix">
+                                        <img src="assets/images/avatars/avatar4.png" class="msg-photo" alt="Bob's Avatar">
+                                        <span class="msg-body">
+													<span class="msg-title">
+														<span class="blue">Bob:</span>
+														Nullam quis risus eget urna mollis ornare ...
+													</span>
+
+													<span class="msg-time">
+														<i class="ace-icon fa fa-clock-o"></i>
+														<span>3:15 pm</span>
+													</span>
+												</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#" class="clearfix">
+                                        <img src="assets/images/avatars/avatar2.png" class="msg-photo" alt="Kate's Avatar">
+                                        <span class="msg-body">
+													<span class="msg-title">
+														<span class="blue">Kate:</span>
+														Ciao sociis natoque eget urna mollis ornare ...
+													</span>
+
+													<span class="msg-time">
+														<i class="ace-icon fa fa-clock-o"></i>
+														<span>1:33 pm</span>
+													</span>
+												</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#" class="clearfix">
+                                        <img src="assets/images/avatars/avatar5.png" class="msg-photo" alt="Fred's Avatar">
+                                        <span class="msg-body">
+													<span class="msg-title">
+														<span class="blue">Fred:</span>
+														Vestibulum id penatibus et auctor  ...
+													</span>
+
+													<span class="msg-time">
+														<i class="ace-icon fa fa-clock-o"></i>
+														<span>10:09 am</span>
+													</span>
+												</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div></li>
+
+                        <li class="dropdown-footer">
+                            <a href="inbox.html">
+                                See all messages
+                                <i class="ace-icon fa fa-arrow-right"></i>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
-                <li>
-                    <a href="#">
-                        <div>
-                            <i class="fa fa-tasks fa-fw"></i> New Task
-                            <span class="pull-right text-muted small">4 minutes ago</span>
-                        </div>
+
+                <li class="light-blue dropdown-modal">
+                    <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+                        <img class="nav-user-photo" src="<c:url value="/resources/assets/images/avatars/user.jpg"/>" alt="Jason's Photo">
+                        <span class="user-info">
+									<small>Welcome,</small>
+									Jason
+								</span>
+
+                        <i class="ace-icon fa fa-caret-down"></i>
                     </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div>
-                            <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                            <span class="pull-right text-muted small">4 minutes ago</span>
-                        </div>
-                    </a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                    <a class="text-center" href="#">
-                        <strong>See All Alerts</strong>
-                        <i class="fa fa-angle-right"></i>
-                    </a>
+
+                    <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                        <li>
+                            <a href="#">
+                                <i class="ace-icon fa fa-cog"></i>
+                                Settings
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="profile.html">
+                                <i class="ace-icon fa fa-user"></i>
+                                Profile
+                            </a>
+                        </li>
+
+                        <li class="divider"></li>
+
+                        <li>
+                            <a href="#">
+                                <i class="ace-icon fa fa-power-off"></i>
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
-        </li>
-        <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                <i class="fa fa-user fa-fw"></i> secondtruth <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu dropdown-user">
-                <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                </li>
-                <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                </li>
-                <li class="divider"></li>
-                <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                </li>
-            </ul>
-        </li>
-    </ul>
-    <!-- /.navbar-top-links -->
-
-    <%@ include file="menu.jsp" %>
-    <!-- /.navbar-static-side -->
-</nav>
+        </div>
+    </div><!-- /.navbar-container -->
+</div>

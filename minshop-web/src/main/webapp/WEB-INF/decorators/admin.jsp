@@ -9,53 +9,70 @@
 <%@include file="../taglib/taglib.jsp"%>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
     <title>Admin MinShop</title>
     <link rel="shortcut icon" href="<c:url value="/resources/image/logo.jpg" />">
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css" />">
-    <!-- MetisMenu CSS -->
-    <link href="<c:url value="/resources/css/metisMenu.min.css" />" rel='stylesheet' type='text/css' />
 
-    <!-- Timeline CSS -->
-    <link href="<c:url value="/resources/css/timeline.css" />" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="<c:url value="/resources/css/startmin.css" />" rel="stylesheet">
-    <!-- Morris Charts CSS -->
-    <link rel="stylesheet" href="<c:url value="/resources/css/morris.css" />" type="text/css"/>
-    <!-- Custom Fonts -->
-    <link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.min.css" />" type='text/css' />
+    <meta name="description" content="overview &amp; stats" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]-->
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>-->
-    <!--[endif]-->
+    <!-- bootstrap & fontawesome -->
+    <link rel="stylesheet" href="<c:url value='/resources/assets/css/bootstrap.min.css'/>" />
+    <link rel="stylesheet" href="<c:url value='/resources/assets/font-awesome/4.5.0/css/font-awesome.min.css'/>" />
+
+    <!-- page specific plugin styles -->
+
+    <!-- text fonts -->
+    <link rel="stylesheet" href="<c:url value='/resources/assets/css/fonts.googleapis.com.css'/>" />
+
+    <!-- ace styles -->
+    <link rel="stylesheet" href="<c:url value='/resources/assets/css/ace.min.css'/>" class="ace-main-stylesheet" id="main-ace-style" />
+
+    <link rel="stylesheet" href="<c:url value='/resources/assets/css/ace-skins.min.css'/>" />
+    <link rel="stylesheet" href="<c:url value='/resources/assets/css/ace-rtl.min.css'/>" />
+    <!-- ace settings handler -->
+    <script src="<c:url value='/resources/assets/js/ace-extra.min.js'/>"></script>
     <dec:head />
 
 </head>
-<body id="wrapper">
-    <!-- Navigation -->
+<body class="no-skin">
+    <!-- header -->
     <%@ include file="../common/admin/header.jsp"%>
+    <div class="main-container ace-save-state" id="main-container">
+        <script type="text/javascript">
+            try{ace.settings.loadState('main-container')}catch(e){}
+        </script>
+        <%-- menu --%>
+        <%@ include file="../common/admin/menu.jsp"%>
+        <div class="main-content">
+            <div class="main-content-inner">
+                <!-- breadcrumb -->
+                <%@ include file="../common/admin/breadcrumb.jsp"%>
+                <div class="page-content">
+                    <%--setting--%>
+                    <%@ include file="../common/admin/setting.jsp"%>
+                    <dec:body/>
+                </div>
+            </div>
+        </div>
+        <!-- footer -->
+        <%@ include file="../common/admin/footer.jsp"%>
+        <%--scroll-top--%>
+        <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+            <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+        </a>
+    </div>
 
-    <dec:body/>
 
-    <!-- jQuery -->
-    <script src="<c:url value="/resources/js/jquery-3.4.1.min.js" />"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="<c:url value="/resources/js/metisMenu.min.js" />"></script>
-    <!-- Morris Charts JavaScript -->
-    <script src="<c:url value="/resources/js/raphael.min.js" />"></script>
-    <script src="<c:url value="/resources/js/morris.min.js" />"></script>
-    <script src="<c:url value="/resources/js/morris-data.js" />"></script>
-    <!-- Custom Theme JavaScript -->
-    <script src="<c:url value="/resources/js/startmin.js" />"></script>
+
+
+
+    <!-- page specific plugin scripts -->
+
+
+
+
+
 </body>
 </html>
