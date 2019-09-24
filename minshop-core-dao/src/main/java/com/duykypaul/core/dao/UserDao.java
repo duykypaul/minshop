@@ -10,6 +10,8 @@ import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Repository
 @Scope(proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class UserDao implements IUser {
@@ -35,5 +37,18 @@ public class UserDao implements IUser {
 		Session session = sessionFactory.getCurrentSession();
 		Integer user_id = (Integer) session.save(user);
 		return user_id > 0;
+	}
+
+	@Override
+	@Transactional
+	public List<User> getListUser() {
+		Session session = sessionFactory.getCurrentSession();
+		String sql = "from User";
+		try {
+			List<User> userList = (List<User>) session.createQuery(sql).getResultList();
+			return userList;
+		} catch (Exception e) {
+			return null;
+		}
 	}
 }

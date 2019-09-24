@@ -200,29 +200,29 @@
             </ul>
         </li>
         <li class="">
+            <a href="<c:url value="/admin/user"/>">
+                <i class="menu-icon fa fa-user"></i>
+                <span class="menu-text"> Nhân Viên </span>
+            </a>
+            <b class="arrow"></b>
+        </li>
+        <li class="">
             <a href="#" class="dropdown-toggle">
                 <i class="menu-icon fa fa-cubes"></i>
-                <span class="menu-text"> Tables </span>
+                <span class="menu-text"> Sản Phẩm </span>
                 <b class="arrow fa fa-angle-down"></b>
             </a>
             <b class="arrow"></b>
             <ul class="submenu">
-                <li class="">
-                    <a href="
-                    <c:url value="/admin/user"/>
-                    ">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Simple &amp; Dynamic
-                    </a>
-                    <b class="arrow"></b>
-                </li>
-                <li class="">
-                    <a href="jqgrid.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        jqGrid plugin
-                    </a>
-                    <b class="arrow"></b>
-                </li>
+                <%--<c:forEach var="productLine" items="${productLineList}">--%>
+                    <li class="">
+                        <a href="#">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            Simple &amp; Dynamic
+                        </a>
+                        <b class="arrow"></b>
+                    </li>
+                <%--</c:forEach>--%>
             </ul>
         </li>
         <li class="">
@@ -269,13 +269,6 @@
                     <b class="arrow"></b>
                 </li>
             </ul>
-        </li>
-        <li class="">
-            <a href="widgets.html">
-                <i class="menu-icon fa fa-list-alt"></i>
-                <span class="menu-text"> Widgets </span>
-            </a>
-            <b class="arrow"></b>
         </li>
         <li class="">
             <a href="calendar.html">
