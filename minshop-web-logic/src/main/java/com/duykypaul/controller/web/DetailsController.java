@@ -1,4 +1,4 @@
-package com.duykypaul.controller;
+package com.duykypaul.controller.web;
 
 import com.duykypaul.core.persistence.entity.Product;
 import com.duykypaul.core.service.ProductService;

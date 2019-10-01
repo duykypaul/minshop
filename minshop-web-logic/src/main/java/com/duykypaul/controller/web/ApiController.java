@@ -1,4 +1,4 @@
-package com.duykypaul.controller;
+package com.duykypaul.controller.web;
 
 import com.duykypaul.core.persistence.entity.ShoppingCart;
 import com.duykypaul.core.service.UserService;

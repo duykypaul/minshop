@@ -214,15 +214,15 @@
             </a>
             <b class="arrow"></b>
             <ul class="submenu">
-                <%--<c:forEach var="productLine" items="${productLineList}">--%>
+                <c:forEach var="productLine" items="${productLineList}">
                     <li class="">
-                        <a href="#">
+                        <a href="<c:url value="/admin/product-line/${productLine.getProduct_line_id()}"/> ">
                             <i class="menu-icon fa fa-caret-right"></i>
-                            Simple &amp; Dynamic
+                                ${productLine.getName()}
                         </a>
                         <b class="arrow"></b>
                     </li>
-                <%--</c:forEach>--%>
+                </c:forEach>
             </ul>
         </li>
         <li class="">

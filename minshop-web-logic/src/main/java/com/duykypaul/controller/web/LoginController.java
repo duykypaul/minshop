@@ -1,4 +1,4 @@
-package com.duykypaul.controller;
+package com.duykypaul.controller.web;
 
 import java.util.regex.Pattern;
 

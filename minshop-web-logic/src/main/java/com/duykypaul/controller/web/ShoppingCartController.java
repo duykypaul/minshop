@@ -1,4 +1,4 @@
-package com.duykypaul.controller;
+package com.duykypaul.controller.web;
 
 import com.duykypaul.core.persistence.entity.Invoice;
 import com.duykypaul.core.persistence.entity.InvoiceDetails;
@@ -46,8 +46,5 @@ public class ShoppingCartController {
                 System.out.println("add invoice failed");
             }
         }
-
     }
-
-
 }
