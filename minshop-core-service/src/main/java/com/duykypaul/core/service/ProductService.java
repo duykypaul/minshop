@@ -27,4 +27,9 @@ public class ProductService implements IProduct {
     public List<Product> getProductListById(Integer id) {
         return productDao.getProductListById(id);
     }
+
+    @Override
+    public Integer removeProductById(Integer ids) {
+        return productDao.removeProductById(ids);
+    }
 }

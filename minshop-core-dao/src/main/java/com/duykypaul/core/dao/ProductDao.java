@@ -2,6 +2,7 @@ package com.duykypaul.core.dao;
 
 import com.duykypaul.core.inf.IProduct;
 import com.duykypaul.core.persistence.entity.Product;
+import com.duykypaul.core.persistence.entity.ProductDetails;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,8 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Set;
+
 @Repository
 @Scope(proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class ProductDao implements IProduct {
@@ -42,5 +45,20 @@ public class ProductDao implements IProduct {
         String sql = "from Product where product_line_id = " + product_line_id;
         List<Product> productList = session.createQuery(sql).getResultList();
         return productList;
+    }
+
+    @Override
+    @Transactional
+    public Integer removeProductById(Integer id) {
+        Session session = sessionFactory.getCurrentSession();
+        Product product = session.get(Product.class, id);
+        Set<ProductDetails> productDetailsSet = product.getProductDetailsList();
+        for (ProductDetails productDetails: productDetailsSet) {
+            session.createQuery("delete from InvoiceDetails where product_details_id=" + productDetails.getProduct_details_id()).executeUpdate();
+        }
+        session.createQuery("delete from PromotionDetails where product_id=" + id).executeUpdate();
+        session.createQuery("delete from ProductDetails where product_id=" + id).executeUpdate();
+        return session.createQuery("delete from Product where product_id=" + id).executeUpdate();
+//        session.delete(product);
     }
 }

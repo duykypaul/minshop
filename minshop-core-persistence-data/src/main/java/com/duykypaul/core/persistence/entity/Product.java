@@ -12,6 +12,8 @@ public class Product {
     Integer price;
     String descriptions;
     String image;
+    String object;
+
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="product_line_id")
@@ -89,6 +91,14 @@ public class Product {
 
     public void setPromotionList(Set<Promotion> promotionList) {
         this.promotionList = promotionList;
+    }
+
+    public String getObject() {
+        return object;
+    }
+
+    public void setObject(String object) {
+        this.object = object;
     }
 
 

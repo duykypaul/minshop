@@ -28,4 +28,9 @@ public class UserService implements IUser {
 		return userDao.getListUser();
 	}
 
+    @Override
+    public void removeUserById(Integer ids) {
+		userDao.removeUserById(ids);
+    }
+
 }

@@ -19,6 +19,7 @@
 
     <!-- bootstrap & fontawesome -->
     <link rel="stylesheet" href="<c:url value='/resources/assets/css/bootstrap.min.css'/>" />
+
     <link rel="stylesheet" href="<c:url value='/resources/assets/font-awesome/4.5.0/css/font-awesome.min.css'/>" />
 
     <!-- page specific plugin styles -->
@@ -33,6 +34,8 @@
     <link rel="stylesheet" href="<c:url value='/resources/assets/css/ace-rtl.min.css'/>" />
     <!-- ace settings handler -->
     <script src="<c:url value='/resources/assets/js/ace-extra.min.js'/>"></script>
+    <%--custom css--%>
+    <%--<link rel="stylesheet" href="<c:url value="/resources/styles/styles.css" />">--%>
     <dec:head />
 
 </head>
@@ -63,16 +66,6 @@
             <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
         </a>
     </div>
-
-
-
-
-
     <!-- page specific plugin scripts -->
-
-
-
-
-
 </body>
 </html>

@@ -18,10 +18,8 @@
         <div class="row">
             <div class="col-xs-12">
                 <h3 class="header smaller lighter blue">jQuery dataTables</h3>
-
                 <div class="clearfix">
                     <div class="pull-right tableTools-container"></div>
-                    <div class="pull-left"></div>
                 </div>
 
                 <div class="table-header">
@@ -41,15 +39,76 @@
                                     <span class="lbl"></span>
                                 </label>
                             </th>
-                            <th>Hình ảnh</th>
+                            <th>Mã sản phẩm</th>
                             <th>Sản phẩm</th>
+                            <th class="hide"></th>
+                            <th class="">Giành cho</th>
                             <th>giá tiền</th>
                             <th></th>
                         </tr>
                         </thead>
 
                         <tbody>
+                            <c:forEach var="product" items="${productList}">
 
+                            <tr>
+                                <td class="center">
+                                    <label class="pos-rel">
+                                        <input type="checkbox" class="ace" value="${product.getProduct_id()}"/>
+                                        <span class="lbl"></span>
+                                    </label>
+                                </td>
+
+                                <td>
+                                    <a href="#">${product.getProduct_id()}</a>
+                                </td>
+                                <td>${product.getName()}</td>
+                                <td class="hidden-480 hide"></td>
+                                <td class="hidden-480">${product.getObject()}</td>
+                                <td class="hidden-480"><span class="price"><fmt:formatNumber type = "number" pattern="###,###" value="${product.getPrice()}" /> đ</span></td>
+                                <td>
+                                    <div class="hidden-sm hidden-xs action-buttons">
+
+                                        <a class="green" href="#">
+                                            <i class="ace-icon fa fa-pencil bigger-130"></i>
+                                        </a>
+
+                                        <a class="red" href="#">
+                                            <i class="ace-icon fa fa-trash-o bigger-130"></i>
+                                        </a>
+                                    </div>
+
+                                    <div class="hidden-md hidden-lg">
+                                        <div class="inline pos-rel">
+                                            <button class="btn btn-minier btn-yellow dropdown-toggle"
+                                                    data-toggle="dropdown"
+                                                    data-position="auto">
+                                                <i class="ace-icon fa fa-caret-down icon-only bigger-120"></i>
+                                            </button>
+
+                                            <ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
+
+                                                <li>
+                                                    <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit">
+																				<span class="green">
+																					<i class="ace-icon fa fa-pencil-square-o bigger-120"></i>
+																				</span>
+                                                    </a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
+																				<span class="red">
+																					<i class="ace-icon fa fa-trash-o bigger-120"></i>
+																				</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </c:forEach>
                         </tbody>
                     </table>
                 </div>
@@ -58,6 +117,6 @@
         <!-- PAGE CONTENT ENDS -->
     </div><!-- /.col -->
 </div><!-- /.row -->
-<%@include file="../../taglib/admin/footer/user.jsp" %>
+<%@include file="../../taglib/admin/footer/product.jsp" %>
 </body>
 </html>

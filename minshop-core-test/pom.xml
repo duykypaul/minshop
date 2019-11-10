@@ -11,6 +11,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>minshop-core-test</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>com.duykypaul</groupId>
+            <artifactId>minshop-core-dao</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
 
 </project>

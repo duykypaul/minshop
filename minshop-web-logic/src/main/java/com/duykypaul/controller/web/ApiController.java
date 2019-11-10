@@ -1,6 +1,7 @@
 package com.duykypaul.controller.web;
 
 import com.duykypaul.core.persistence.entity.ShoppingCart;
+import com.duykypaul.core.service.ProductService;
 import com.duykypaul.core.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,9 @@ import java.util.List;
 public class ApiController {
 	@Autowired
 	UserService userService;
+
+	@Autowired
+	ProductService productService;
 
 	@GetMapping("CheckLogin")
 	@ResponseBody
@@ -103,5 +107,14 @@ public class ApiController {
 			shoppingCartList.remove(index.intValue());
 		}
 		return shoppingCartList.size() + "";
+	}
+
+	@GetMapping("RemoveProducts")
+	public String removeProducts(HttpSession httpSession, @RequestParam Integer ids) {
+		return productService.removeProductById(ids).toString();
+	}
+	@GetMapping("RemoveUser")
+	public void removeUsers(HttpSession httpSession, @RequestParam Integer ids) {
+		userService.removeUserById(ids);
 	}
 }

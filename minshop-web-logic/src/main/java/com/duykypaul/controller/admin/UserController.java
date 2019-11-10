@@ -24,5 +24,4 @@ public class UserController {
         modelMap.addAttribute("userList", userList);
         return "admin/user";
     }
-
 }

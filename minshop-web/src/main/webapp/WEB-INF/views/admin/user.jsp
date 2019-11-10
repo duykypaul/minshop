@@ -31,7 +31,7 @@
                         <tr>
                             <th class="center">
                                 <label class="pos-rel">
-                                    <input type="checkbox" class="ace"/>
+                                    <input type="checkbox" class="ace" />
                                     <span class="lbl"></span>
                                 </label>
                             </th>
@@ -49,11 +49,10 @@
                             <tr>
                                 <td class="center">
                                     <label class="pos-rel">
-                                        <input type="checkbox" class="ace"/>
+                                        <input type="checkbox" class="ace" value="${user.getUser_id()}"/>
                                         <span class="lbl"></span>
                                     </label>
                                 </td>
-
                                 <td>
                                     <a href="#">${user.getUser_id()}</a>
                                 </td>
@@ -79,16 +78,12 @@
 
                                 <td>
                                     <div class="hidden-sm hidden-xs action-buttons">
-                                        <a class="blue" href="#">
-                                            <i class="ace-icon fa fa-search-plus bigger-130"></i>
-                                        </a>
-
                                         <a class="green" href="#">
                                             <i class="ace-icon fa fa-pencil bigger-130"></i>
                                         </a>
 
                                         <a class="red" href="#">
-                                            <i class="ace-icon fa fa-trash-o bigger-130"></i>
+                                            <i id="delete-user" class="ace-icon fa fa-trash-o bigger-130" title="delete user" value="${user.getUser_id()}"></i>
                                         </a>
                                     </div>
 
@@ -102,26 +97,18 @@
 
                                             <ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
                                                 <li>
-                                                    <a href="#" class="tooltip-info" data-rel="tooltip" title="View">
-																				<span class="blue">
-																					<i class="ace-icon fa fa-search-plus bigger-120"></i>
-																				</span>
-                                                    </a>
-                                                </li>
-
-                                                <li>
                                                     <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit">
-																				<span class="green">
-																					<i class="ace-icon fa fa-pencil-square-o bigger-120"></i>
-																				</span>
+                                                        <span class="green">
+                                                            <i class="ace-icon fa fa-pencil-square-o bigger-120"></i>
+                                                        </span>
                                                     </a>
                                                 </li>
 
                                                 <li>
                                                     <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
-																				<span class="red">
-																					<i class="ace-icon fa fa-trash-o bigger-120"></i>
-																				</span>
+                                                        <span class="red">
+                                                            <i class="ace-icon fa fa-trash-o bigger-120"></i>
+                                                        </span>
                                                     </a>
                                                 </li>
                                             </ul>

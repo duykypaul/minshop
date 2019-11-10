@@ -32,5 +32,4 @@ public class HomeController {
 		httpSession.setAttribute("productLineList", productLineList);
 		return "web/home";
 	}
-	
 }

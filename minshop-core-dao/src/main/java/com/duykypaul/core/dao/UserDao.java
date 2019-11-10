@@ -51,4 +51,13 @@ public class UserDao implements IUser {
 			return null;
 		}
 	}
+
+    @Override
+	@Transactional
+    public void removeUserById(Integer ids) {
+        Session session = sessionFactory.getCurrentSession();
+        User user = session.get(User.class, ids);
+        session.createQuery("delete from User where user_id=" + ids).executeUpdate();
+//        session.delete(user);
+    }
 }

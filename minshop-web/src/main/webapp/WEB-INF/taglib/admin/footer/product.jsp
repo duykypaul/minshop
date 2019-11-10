@@ -22,10 +22,10 @@
 <script src="<c:url value='/resources/assets/js/buttons.print.min.js' />"></script>
 <script src="<c:url value='/resources/assets/js/buttons.colVis.min.js' />"></script>
 <script src="<c:url value='/resources/assets/js/dataTables.select.min.js' />"></script>
-
 <!-- ace scripts -->
 <script src="<c:url value='/resources/assets/js/ace-elements.min.js'/>"></script>
 <script src="<c:url value='/resources/assets/js/ace.min.js'/>"></script>
+
 
 <!-- inline scripts related to this page -->
 <script type="text/javascript">
@@ -84,11 +84,11 @@
                     message: 'This print was produced using the Print button for DataTables'
                 },
                 {
-                    "text": "<i id='delete-user-multi' class='fa fa-trash-o bigger-110 orange'></i> <span class='hidden'>Delete</span>",
+                    "text": "<i id='delete-product-multi' class='fa fa-trash-o bigger-110 orange'></i> <span class='hidden'>Delete</span>",
                     "className": "btn btn-white btn-primary btn-bold"
                 },
                 {
-                    "text": "<i id='insert-user' class='fa fa-plus-circle bigger-110 orange'></i> <span class='hidden'>Insert</span>",
+                    "text": "<i id='insert-product' class='fa fa-plus-circle bigger-110 orange'></i> <span class='hidden'>Insert</span>",
                     "className": "btn btn-white btn-primary btn-bold"
                 }
             ]
@@ -215,30 +215,33 @@
             $(this).closest('tr').next().toggleClass('open');
             $(this).find(ace.vars['.icon']).toggleClass('fa-angle-double-down').toggleClass('fa-angle-double-up');
         });
-        $('#delete-user-multi').on('click', function () {
+
+        $('#delete-product-multi').on('click', function () {
             var ids = 0;
-            $("#dynamic-table > tbody input:checked").each(function () {
-                ids = $(this).val();
-                $.ajax({
-                    url: "/minshop/api/RemoveUser",
-                    data: {
-                        ids: ids
-                    }
-                });
+            var checkStr =  confirm('are you sure you want to delete this?');
+            if(checkStr == true){
                 $("#dynamic-table > tbody input:checked").each(function () {
-                    $(this).closest("tr").remove();
+                    ids = $(this).val();
+                    $.ajax({
+                        url: "/minshop/api/RemoveProducts",
+                        data: {
+                            ids: ids
+                        },
+                        success: function(value){
+                            alert(ids);
+                        },
+                        error: function(){
+                            // alert(ids);
+                        }
+                    });
+                    $("#dynamic-table > tbody input:checked").each(function () {
+                        $(this).closest("tr").remove();
+                    });
                 });
-            });
+            }else{
+                return false;
+            }
+
         });
-        $('#delete-user').on('click', function() {
-            var id = $("#delete-user").val();
-            $.ajax({
-                url: "/minshop/api/RemoveUser",
-                data: {
-                    ids: id
-                }
-            });
-            $(this).closest("tr").remove();
-        })
     })
 </script>
