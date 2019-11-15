@@ -83,7 +83,7 @@
                                         </a>
 
                                         <a class="red" href="#">
-                                            <i id="delete-user" class="ace-icon fa fa-trash-o bigger-130" title="delete user" value="${user.getUser_id()}"></i>
+                                            <i onclick="deleteUserById(${user.getUser_id()}, event)" class="ace-icon fa fa-trash-o bigger-130" title="delete user" value="${user.getUser_id()}"></i>
                                         </a>
                                     </div>
 

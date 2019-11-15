@@ -110,11 +110,11 @@ public class ApiController {
 	}
 
 	@GetMapping("RemoveProducts")
-	public String removeProducts(HttpSession httpSession, @RequestParam Integer ids) {
-		return productService.removeProductById(ids).toString();
+	public String removeProducts(HttpSession httpSession, @RequestParam Integer id) {
+		return productService.removeProductById(id).toString();
 	}
 	@GetMapping("RemoveUser")
-	public void removeUsers(HttpSession httpSession, @RequestParam Integer ids) {
-		userService.removeUserById(ids);
+	public void removeUsers(HttpSession httpSession, @RequestParam Integer id) {
+		userService.removeUserById(id);
 	}
 }

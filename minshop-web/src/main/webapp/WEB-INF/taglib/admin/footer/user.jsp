@@ -27,8 +27,25 @@
 <script src="<c:url value='/resources/assets/js/ace-elements.min.js'/>"></script>
 <script src="<c:url value='/resources/assets/js/ace.min.js'/>"></script>
 
+
+
 <!-- inline scripts related to this page -->
 <script type="text/javascript">
+
+    $(document).ready(function () {
+
+    });
+    function deleteUserById(id, e) {
+        showAlertBeforeDelete(function () {
+            $.ajax({
+                url: "/minshop/api/RemoveUser",
+                data: {
+                    id: id
+                }
+            });
+            e.path[4].remove();
+        })
+    };
     jQuery(function ($) {
         //initiate dataTables plugin
         var myTable =
@@ -216,29 +233,25 @@
             $(this).find(ace.vars['.icon']).toggleClass('fa-angle-double-down').toggleClass('fa-angle-double-up');
         });
         $('#delete-user-multi').on('click', function () {
-            var ids = 0;
-            $("#dynamic-table > tbody input:checked").each(function () {
-                ids = $(this).val();
-                $.ajax({
-                    url: "/minshop/api/RemoveUser",
-                    data: {
-                        ids: ids
-                    }
-                });
+            showAlertBeforeDelete(function () {
+                var id = 0;
                 $("#dynamic-table > tbody input:checked").each(function () {
-                    $(this).closest("tr").remove();
+                    id = $(this).val();
+                    $.ajax({
+                        url: "/minshop/api/RemoveUser",
+                        data: {
+                            id: id
+                        },
+                        success: function() {
+                        },
+                        error: function () {
+                        }
+                    });
+                    $("#dynamic-table > tbody input:checked").each(function () {
+                        $(this).closest("tr").remove();
+                    });
                 });
             });
         });
-        $('#delete-user').on('click', function() {
-            var id = $("#delete-user").val();
-            $.ajax({
-                url: "/minshop/api/RemoveUser",
-                data: {
-                    ids: id
-                }
-            });
-            $(this).closest("tr").remove();
-        })
-    })
+    });
 </script>

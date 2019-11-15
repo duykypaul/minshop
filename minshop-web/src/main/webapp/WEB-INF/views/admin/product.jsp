@@ -74,7 +74,7 @@
                                         </a>
 
                                         <a class="red" href="#">
-                                            <i class="ace-icon fa fa-trash-o bigger-130"></i>
+                                            <i onclick="deleteProductById(${product.getProduct_id()}, event)" class="ace-icon fa fa-trash-o bigger-130"></i>
                                         </a>
                                     </div>
 

@@ -15,7 +15,6 @@ import java.util.List;
 
 @Controller
 @RequestMapping(value = {"/san-pham", "/admin/product-line"})
-
 public class ProductController {
     @Autowired
     ProductService productService;
@@ -27,5 +26,10 @@ public class ProductController {
         String url = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest().getRequestURI();
         if(url.contains("/product-line")) return "admin/product";
         return "web/product";
+    }
+
+    @GetMapping("/insert-product")
+    public String Insert() {
+        return "admin/insertProduct";
     }
 }

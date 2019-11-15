@@ -29,8 +29,8 @@ public class UserService implements IUser {
 	}
 
     @Override
-    public void removeUserById(Integer ids) {
-		userDao.removeUserById(ids);
+    public void removeUserById(Integer id) {
+		userDao.removeUserById(id);
     }
 
 }

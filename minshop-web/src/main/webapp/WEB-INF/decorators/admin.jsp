@@ -34,8 +34,10 @@
     <link rel="stylesheet" href="<c:url value='/resources/assets/css/ace-rtl.min.css'/>" />
     <!-- ace settings handler -->
     <script src="<c:url value='/resources/assets/js/ace-extra.min.js'/>"></script>
-    <%--custom css--%>
-    <%--<link rel="stylesheet" href="<c:url value="/resources/styles/styles.css" />">--%>
+    <%--sweetalert css--%>
+    <link rel="stylesheet" href="<c:url value="/resources/assets/sweetalert/sweetalert2.min.css" />">
+    <%--Sweet Alert js--%>
+    <script src="<c:url value='/resources/assets/sweetalert/sweetalert2.min.js'/>"></script>
     <dec:head />
 
 </head>
@@ -67,5 +69,23 @@
         </a>
     </div>
     <!-- page specific plugin scripts -->
+    <script type="text/javascript">
+        function showAlertBeforeDelete(callback) {
+            swal({
+                title: "Delete Item(s)!",
+                text: "Are you sure!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Delete",
+                cancelButtonText: "Cancel",
+                confirmButtonClass: "btn btn-success",
+                cancelButtonClass: "btn btn-danger"
+            }).then(function(isConfirm) {
+                if (isConfirm) {
+                    callback();
+                }
+            });
+        }
+    </script>
 </body>
 </html>

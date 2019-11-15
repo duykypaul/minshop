@@ -29,7 +29,7 @@ public class ProductService implements IProduct {
     }
 
     @Override
-    public Integer removeProductById(Integer ids) {
-        return productDao.removeProductById(ids);
+    public Integer removeProductById(Integer id) {
+        return productDao.removeProductById(id);
     }
 }

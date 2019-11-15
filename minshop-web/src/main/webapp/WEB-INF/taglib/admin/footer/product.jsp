@@ -29,6 +29,17 @@
 
 <!-- inline scripts related to this page -->
 <script type="text/javascript">
+    function deleteProductById(id, e) {
+        showAlertBeforeDelete(function () {
+            $.ajax({
+                url: "/minshop/api/RemoveProducts",
+                data: {
+                    id: id
+                }
+            });
+            e.path[4].remove();
+        })
+    };
     jQuery(function ($) {
         //initiate dataTables plugin
         var myTable =
@@ -217,20 +228,22 @@
         });
 
         $('#delete-product-multi').on('click', function () {
-            var ids = 0;
-            var checkStr =  confirm('are you sure you want to delete this?');
-            if(checkStr == true){
+
+            // var checkStr =  confirm('are you sure you want to delete this?');
+            // if(checkStr == true){
+            showAlertBeforeDelete(function () {
+                var id = 0;
                 $("#dynamic-table > tbody input:checked").each(function () {
-                    ids = $(this).val();
+                    id = $(this).val();
                     $.ajax({
                         url: "/minshop/api/RemoveProducts",
                         data: {
-                            ids: ids
+                            id: id
                         },
-                        success: function(value){
-                            alert(ids);
+                        success: function (value) {
+                            alert(id);
                         },
-                        error: function(){
+                        error: function () {
                             // alert(ids);
                         }
                     });
@@ -238,10 +251,14 @@
                         $(this).closest("tr").remove();
                     });
                 });
-            }else{
-                return false;
-            }
-
+            });
+            // }else{
+            //     return false;
+            // }
+        });
+        $('#insert-product').on('click', function (e) {
+            e.preventDefault();
+            window.location = "<c:url value='/admin/product-line/insert-product'/>";
         });
     })
 </script>

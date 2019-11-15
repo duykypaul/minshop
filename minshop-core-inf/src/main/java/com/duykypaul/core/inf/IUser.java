@@ -8,5 +8,5 @@ public interface IUser {
 	Boolean checkLogin(String email, String password);
 	Boolean addUser(User user);
 	List<User> getListUser();
-	void removeUserById(Integer ids);
+	void removeUserById(Integer id);
 }
