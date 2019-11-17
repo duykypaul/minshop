@@ -117,4 +117,10 @@ public class ApiController {
 	public void removeUsers(HttpSession httpSession, @RequestParam Integer id) {
 		userService.removeUserById(id);
 	}
+
+	@PostMapping("SaveProduct")
+	@ResponseBody
+	public void saveProduct(@RequestParam String dataJson) {
+		System.out.println(dataJson);
+	}
 }

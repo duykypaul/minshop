@@ -16,7 +16,7 @@
     <div class="row well">
         <h3> Add Product</h3>
         <div class="col-md-5 col-sm-9 form-group">
-            <form action="">
+            <form action="" id="form-product">
                 <label for="name">Name:</label>
                 <input type="text" class="form-control" id="name" name="name" placeholder="Enter name product">
                 </br>
@@ -26,8 +26,8 @@
                 <label for="price">Price:</label>
                 <input type="number" class="form-control" id="price" name="price" min="1000" value="1000" step="1000">
                 </br>
-                <label class="radio-inline"><input type="radio" name="object" checked>Male</label>
-                <label class="radio-inline"><input type="radio" name="object">Female</label>
+                <label class="radio-inline"><input type="radio" name="object" checked value="Nam">Male</label>
+                <label class="radio-inline"><input type="radio" name="object" value="Nữ">Female</label>
                 </br>
                 </br>
                 <label for="product_line_id">Product Line:</label>
@@ -40,10 +40,11 @@
                 <label for="desciptions">Desciptions:</label>
                 <textarea type="password" class="form-control" id="desciptions" rows="5" name="desciptions" placeholder="Enter product descriptions"></textarea>
                 </br>
-                <input type="button" class="btn btn-primary" value="Save Product"></input>
+                <input type="button" id="btn-save-product" class="btn btn-primary" value="Save Product"></input>
             </form>
         </div>
         <div class="col-md-5 col-sm-12 form-group">
+            <form id="form-product-details">
             <div class="container-product-details">
                 <div class="add-product-details">
                     <div class="row">
@@ -70,6 +71,7 @@
                     </div>
                 </div>
             </div>
+            </form>
             <br>
             <input type="button" class="btn btn-info btn-add-product-details" value="Add Product Details"></input>
             <div id="add-product-details" class="add-product-details">
@@ -111,6 +113,39 @@
     })
     $(".btn-add-product-details").on('click', function () {
         $("#add-product-details" ).clone().appendTo( ".container-product-details").removeAttr("id");
+    })
+    $("#btn-save-product").click(function (event) {
+        event.preventDefault();
+        var formProduct = $("#form-product").serializeArray();
+        var formProductDetails = $("#form-product-details").serializeArray();
+        var data = {};
+        var arrayProductDetails = [];
+        $.each(formProduct, function (i, field) {
+            data[field.name] = field.value;
+        });
+        var index = 0;
+        $.each(formProductDetails, function (i, field) {
+            if(index % 3 == 0) {
+                objectProductDetails = {};
+            }
+             objectProductDetails[field.name] = field.value;
+             if(i!= 0 && i % 2 == 0) {
+                 arrayProductDetails.push(objectProductDetails);
+             }
+             index++;
+
+        });
+        data["ProductDetails"] = arrayProductDetails;
+        $.ajax({
+            url: "/minshop/api/SaveProduct",
+            type: "POST",
+            data: {
+                dataJson: JSON.stringify(data)
+            },
+            success: function () {
+                console.log(JSON.stringify(data));
+            }
+        });
     })
 </script>
 </body>

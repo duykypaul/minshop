@@ -241,7 +241,7 @@
                             id: id
                         },
                         success: function (value) {
-                            alert(id);
+                            // alert(id);
                         },
                         error: function () {
                             // alert(ids);
