@@ -10,14 +10,10 @@
 <html>
 <head>
     <title>Insert Product</title>
-    <!-- bootstrap & fontawesome -->
-    <link rel="stylesheet" href="<c:url value='/resources/assets/css/bootstrap.min.css'/>" />
-
-    <link rel="stylesheet" href="<c:url value='/resources/assets/font-awesome/4.5.0/css/font-awesome.min.css'/>" />
 </head>
 <body>
 <div class="container">
-    <div class="row">
+    <div class="row well">
         <h3> Add Product</h3>
         <div class="col-md-5 col-sm-9 form-group">
             <form action="">
@@ -32,6 +28,7 @@
                 </br>
                 <label class="radio-inline"><input type="radio" name="object" checked>Male</label>
                 <label class="radio-inline"><input type="radio" name="object">Female</label>
+                </br>
                 </br>
                 <label for="product_line_id">Product Line:</label>
                 <select class="form-control" id="product_line_id" name="product_line_id">
@@ -79,7 +76,6 @@
                 <hr>
                 <div class="row">
                     <div class="col-md-4 col-sm-2">
-                        <label for="product_color_id">Product Color:</label>
                         <select class="form-control" id="product_color_id" name="product_color_id">
                             <c:forEach var="productColor" items="${productColorList}">
                                 <option value="${productColor.getProduct_color_id()}">${productColor.getName()}</option>
@@ -87,7 +83,6 @@
                         </select>
                     </div>
                     <div class="col-md-4 col-sm-2">
-                        <label for="product_size_id">Product Size:</label>
                         <select class="form-control" id="product_size_id" name="product_size_id">
                             <c:forEach var="productSize" items="${productSizeList}">
                                 <option value="${productSize.getProduct_size_id()}">${productSize.getSize()}</option>
@@ -95,7 +90,6 @@
                         </select>
                     </div>
                     <div class="col-md-4 col-sm-2">
-                        <label for="price">Quantity:</label>
                         <input type="number" class="form-control" id="quantity" name="quantity" min="1" value="1">
                     </div>
                 </div>
@@ -108,6 +102,9 @@
     if ('ontouchstart' in document.documentElement) document.write("<script src='<c:url value='/resources/assets/js/jquery.mobile.custom.min.js'/>'>" + "<" + "/script>");
 </script>
 <script src="<c:url value='/resources/assets/js/bootstrap.min.js'/>"></script>
+<!-- ace scripts -->
+<script src="<c:url value='/resources/assets/js/ace-elements.min.js'/>"></script>
+<script src="<c:url value='/resources/assets/js/ace.min.js'/>"></script>
 <script>
     $("#image").change(function (event) {
         console.log(event.target.files);
