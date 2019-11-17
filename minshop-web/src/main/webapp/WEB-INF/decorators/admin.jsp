@@ -34,6 +34,8 @@
     <link rel="stylesheet" href="<c:url value='/resources/assets/css/ace-rtl.min.css'/>" />
     <!-- ace settings handler -->
     <script src="<c:url value='/resources/assets/js/ace-extra.min.js'/>"></script>
+    <%--Style css--%>
+    <link rel="stylesheet" href="<c:url value="/resources/assets/styles/style.css" />">
     <%--sweetalert css--%>
     <link rel="stylesheet" href="<c:url value="/resources/assets/sweetalert/sweetalert2.min.css" />">
     <%--Sweet Alert js--%>
@@ -86,6 +88,7 @@
                 }
             });
         }
+
     </script>
 </body>
 </html>
