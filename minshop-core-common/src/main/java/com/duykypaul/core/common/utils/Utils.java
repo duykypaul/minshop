@@ -10,30 +10,54 @@ public class Utils {
     // đọc dl từ file
     public static String readContentFromFile(String path) throws IOException {
         List<Character> arrTest = new ArrayList<>();
-        arrTest.add('•');
+//        arrTest.add('•');
 //        arrTest.add('1');
 //        arrTest.add('2');
 //        arrTest.add('3');
 //        arrTest.add('4');
-        arrTest.add('Đ');
+//        arrTest.add('Đ');
         String str = "";
+        CharSequence s = ":";
         try (FileReader fileReader = new FileReader(path);
              BufferedReader br = new BufferedReader(fileReader)) {
-            String str1;
+            String strInLine;
             Integer count = 1;
-            while((str1 = br.readLine()) != null) {
-                if(str1 != null && str1 != "") {
-                    if(!arrTest.contains(str1.charAt(0))) {
-//                        str1 = "Ex " + count++ + ". " + str1;
-                        str += str1 + "\n";
-                    }
+            while((strInLine = br.readLine()) != null) {
+//                if(strInLine != null && strInLine != "") {
+//                    if(!arrTest.contains(strInLine.charAt(0))) {
+////                        strInLine = "Ex " + count++ + ". " + strInLine;
+//                        str += strInLine + "\n";
+//                    }
+//                }
+//                str += strInLine + "\n";
+                if(strInLine.contains(s)) {
+                    strInLine = "\"" + strInLine.substring(0, strInLine.indexOf(":")) + "\"" + strInLine.substring(strInLine.indexOf(":"));
                 }
-//                str += str1 + "\n";
+                str += strInLine + "\n";
             }
         } catch(FileNotFoundException e){
             System.out.println("FileNotFound");
         }
         return str;
+    }
+
+    public static String readContentFromFile1(String path) throws IOException {
+        String str1 = "";
+        CharSequence s = ":";
+        try (FileReader fileReader = new FileReader(path);
+             BufferedReader br = new BufferedReader(fileReader)) {
+            String strInLine;
+            Integer count = 1;
+            while((strInLine = br.readLine()) != null) {
+                if(strInLine.contains(s)) {
+                    strInLine = strInLine.substring(0, strInLine.indexOf(":")) + strInLine.substring(strInLine.indexOf(":"));
+                }
+                str1 += strInLine + "\n";
+            }
+        } catch(FileNotFoundException e){
+            System.out.println("FileNotFound");
+        }
+        return str1;
     }
 
     // ghi vào file (ghi tiếp vào cuối file)
@@ -65,10 +89,10 @@ public class Utils {
     }
 
     public static void main001(String[] args) {
-        String path = "read.txt";
+        String path = "en-VN.json";
 
         try {
-            path = findFileByName("C:\\Users\\DuyKyPaul\\Desktop", "tuloai.toeic-Copy1.txt").getPath();
+            path = findFileByName("C:\\Users\\DuyKyPaul\\Desktop", "en-VN.json").getPath();
         } catch (NullPointerException e) {
             System.out.println("NullPointerException " + e.getMessage() +"/ " + path);
 
@@ -76,7 +100,7 @@ public class Utils {
         try {
             // in ra dl ban đầu
             System.out.println(readContentFromFile(path));
-            writeContentToFile1("C:\\Users\\DuyKyPaul\\Desktop\\tuloai.toeic-Copy.txt", readContentFromFile(path));
+//            writeContentToFile1("C:\\Users\\DuyKyPaul\\Desktop\\en-VN.json", readContentFromFile(path));
 
 
         } catch (IOException ex) {

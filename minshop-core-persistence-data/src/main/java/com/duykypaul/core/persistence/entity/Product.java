@@ -15,7 +15,7 @@ public class Product {
     String object;
 
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name="product_line_id")
     ProductLine productLine;
 

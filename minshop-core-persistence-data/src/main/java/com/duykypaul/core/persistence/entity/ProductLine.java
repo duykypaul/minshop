@@ -9,7 +9,6 @@ public class ProductLine {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer product_line_id;
     String name;
-    String image;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name="product_line_id")
@@ -29,14 +28,6 @@ public class ProductLine {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
     }
 
     public Set<Product> getProductList() {

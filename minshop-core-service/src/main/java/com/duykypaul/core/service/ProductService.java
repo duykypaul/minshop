@@ -32,4 +32,9 @@ public class ProductService implements IProduct {
     public Integer removeProductById(Integer id) {
         return productDao.removeProductById(id);
     }
+
+    @Override
+    public Integer saveProduct(Product product) {
+        return productDao.saveProduct(product);
+    }
 }

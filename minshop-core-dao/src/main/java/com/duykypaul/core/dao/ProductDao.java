@@ -61,4 +61,11 @@ public class ProductDao implements IProduct {
         return session.createQuery("delete from Product where product_id=" + id).executeUpdate();
 //        session.delete(product);
     }
+
+    @Override
+    @Transactional
+    public Integer saveProduct(Product product) {
+        Session session = sessionFactory.getCurrentSession();
+        return (Integer) session.save(product);
+    }
 }

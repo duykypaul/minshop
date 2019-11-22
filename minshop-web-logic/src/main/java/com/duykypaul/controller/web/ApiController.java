@@ -1,16 +1,22 @@
 package com.duykypaul.controller.web;
 
-import com.duykypaul.core.persistence.entity.ShoppingCart;
+import com.duykypaul.core.persistence.entity.*;
 import com.duykypaul.core.service.ProductService;
 import com.duykypaul.core.service.UserService;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.File;
+import java.io.IOException;
+import java.util.*;
 
 @Controller
 @RequestMapping("api/")
@@ -22,6 +28,8 @@ public class ApiController {
 	@Autowired
 	ProductService productService;
 
+	@Autowired
+    ServletContext servletContext;
 	@GetMapping("CheckLogin")
 	@ResponseBody
 	public String checkLogin(@RequestParam String email, @RequestParam String password, ModelMap modelMap) {
@@ -118,9 +126,64 @@ public class ApiController {
 		userService.removeUserById(id);
 	}
 
+	@PostMapping("UploadFile")
+    @ResponseBody
+    public String UploadFile(MultipartHttpServletRequest multipartHttpServletRequest) {
+	    String path_save_file = servletContext.getRealPath("/resources/image/products/");
+		Iterator<String> listNames = multipartHttpServletRequest.getFileNames();
+		System.out.println(path_save_file);
+		MultipartFile multipartFile = multipartHttpServletRequest.getFile(listNames.next());
+        File file_save = new File(path_save_file + multipartFile.getOriginalFilename());
+		try {
+			multipartFile.transferTo(file_save);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return "true";
+    }
+
 	@PostMapping("SaveProduct")
 	@ResponseBody
 	public void saveProduct(@RequestParam String dataJson) {
-		System.out.println(dataJson);
+		ObjectMapper objectMapper = new ObjectMapper();
+		JsonNode jsonObject;
+		try {
+			jsonObject = objectMapper.readTree(dataJson);
+            Product product = new Product();
+
+            product.setName(jsonObject.get("name").asText());
+            product.setPrice(jsonObject.get("price").asInt());
+            product.setDescriptions(jsonObject.get("descriptions").asText());
+            product.setImage(jsonObject.get("image").asText());
+            product.setObject(jsonObject.get("object").asText());
+
+            ProductLine productLine = new ProductLine();
+            productLine.setProduct_line_id(jsonObject.get("product_line_id").asInt());
+			product.setProductLine(productLine);
+            JsonNode jsonProductDetails = jsonObject.get("productDetails");
+            Set<ProductDetails> productDetailsList = new HashSet<>();
+            for (JsonNode objectProductDetails : jsonProductDetails) {
+                ProductDetails productDetails = new ProductDetails();
+
+                ProductSize productSize =  new ProductSize();
+                productSize.setProduct_size_id(objectProductDetails.get("product_size_id").asInt());
+
+                ProductColor productColor = new ProductColor();
+                productColor.setProduct_color_id(objectProductDetails.get("product_color_id").asInt());
+
+                productDetails.setProductSize(productSize);
+                productDetails.setProductColor(productColor);
+                productDetails.setQuantity(objectProductDetails.get("quantity").asInt());
+
+                productDetailsList.add(productDetails);
+            }
+
+            product.setProductDetailsList(productDetailsList);
+
+            productService.saveProduct(product);
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }
