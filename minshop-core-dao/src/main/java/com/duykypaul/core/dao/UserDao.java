@@ -61,4 +61,16 @@ public class UserDao implements IUser {
 		session.createQuery("delete from User where user_id=" + id).executeUpdate();
     }
 
+	@Override
+	public void updateUser(Integer id) {
+		Session session = sessionFactory.getCurrentSession();
+		User user = session.get(User.class, id);
+		session.update(user);
+	}
+
+	@Override
+	public User getUserById(Integer id) {
+		return sessionFactory.getCurrentSession().get(User.class, id);
+	}
+
 }

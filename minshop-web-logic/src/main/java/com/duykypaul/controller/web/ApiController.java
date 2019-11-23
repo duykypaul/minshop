@@ -131,7 +131,6 @@ public class ApiController {
     public String UploadFile(MultipartHttpServletRequest multipartHttpServletRequest) {
 	    String path_save_file = servletContext.getRealPath("/resources/image/products/");
 		Iterator<String> listNames = multipartHttpServletRequest.getFileNames();
-		System.out.println(path_save_file);
 		MultipartFile multipartFile = multipartHttpServletRequest.getFile(listNames.next());
         File file_save = new File(path_save_file + multipartFile.getOriginalFilename());
 		try {
@@ -145,40 +144,16 @@ public class ApiController {
 	@PostMapping("SaveProduct")
 	@ResponseBody
 	public void saveProduct(@RequestParam String dataJson) {
+        System.out.println(dataJson);
 		ObjectMapper objectMapper = new ObjectMapper();
 		JsonNode jsonObject;
 		try {
 			jsonObject = objectMapper.readTree(dataJson);
             Product product = new Product();
 
-            product.setName(jsonObject.get("name").asText());
-            product.setPrice(jsonObject.get("price").asInt());
-            product.setDescriptions(jsonObject.get("descriptions").asText());
-            product.setImage(jsonObject.get("image").asText());
-            product.setObject(jsonObject.get("object").asText());
-
-            ProductLine productLine = new ProductLine();
-            productLine.setProduct_line_id(jsonObject.get("product_line_id").asInt());
-			product.setProductLine(productLine);
-            JsonNode jsonProductDetails = jsonObject.get("productDetails");
-            Set<ProductDetails> productDetailsList = new HashSet<>();
-            for (JsonNode objectProductDetails : jsonProductDetails) {
-                ProductDetails productDetails = new ProductDetails();
-
-                ProductSize productSize =  new ProductSize();
-                productSize.setProduct_size_id(objectProductDetails.get("product_size_id").asInt());
-
-                ProductColor productColor = new ProductColor();
-                productColor.setProduct_color_id(objectProductDetails.get("product_color_id").asInt());
-
-                productDetails.setProductSize(productSize);
-                productDetails.setProductColor(productColor);
-                productDetails.setQuantity(objectProductDetails.get("quantity").asInt());
-
-                productDetailsList.add(productDetails);
-            }
-
-            product.setProductDetailsList(productDetailsList);
+            setupProductAttributes(product, jsonObject);
+			setupProductLine(product, jsonObject);
+            setupProductDetailsList(product, jsonObject);
 
             productService.saveProduct(product);
 
@@ -186,4 +161,46 @@ public class ApiController {
 			e.printStackTrace();
 		}
 	}
+
+    @GetMapping("UpdateProduct")
+    public String saveProducts(ModelMap modelMap, @RequestParam Integer id) {
+        Product product = productService.getProductById(id);
+        modelMap.addAttribute("product", product);
+        return "admin/insertProduct";
+    }
+
+    private void setupProductAttributes(Product product, JsonNode jsonObject) {
+        product.setName(jsonObject.get("name").asText());
+        product.setPrice(jsonObject.get("price").asInt());
+        product.setDescriptions(jsonObject.get("descriptions").asText());
+        product.setImage(jsonObject.get("image").asText());
+        product.setObject(jsonObject.get("object").asText());
+    }
+
+    private void setupProductLine(Product product, JsonNode jsonObject) {
+        ProductLine productLine = new ProductLine();
+        productLine.setProduct_line_id(jsonObject.get("product_line_id").asInt());
+        product.setProductLine(productLine);
+    }
+
+    private void setupProductDetailsList(Product product, JsonNode jsonObject) {
+        JsonNode jsonProductDetails = jsonObject.get("productDetails");
+        Set<ProductDetails> productDetailsList = new HashSet<>();
+        for (JsonNode objectProductDetails : jsonProductDetails) {
+            ProductDetails productDetails = new ProductDetails();
+
+            ProductSize productSize =  new ProductSize();
+            productSize.setProduct_size_id(objectProductDetails.get("product_size_id").asInt());
+
+            ProductColor productColor = new ProductColor();
+            productColor.setProduct_color_id(objectProductDetails.get("product_color_id").asInt());
+
+            productDetails.setProductSize(productSize);
+            productDetails.setProductColor(productColor);
+            productDetails.setQuantity(objectProductDetails.get("quantity").asInt());
+
+            productDetailsList.add(productDetails);
+        }
+        product.setProductDetailsList(productDetailsList);
+    }
 }

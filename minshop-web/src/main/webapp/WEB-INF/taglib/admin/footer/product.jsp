@@ -40,6 +40,16 @@
             e.path[4].remove();
         })
     };
+    function updateProductById(id, e) {
+        e.preventDefault();
+        $.ajax({
+            url: "/minshop/api/UpdateProduct",
+            data: {
+                id: id
+            }
+        });
+        window.location = "<c:url value='/admin/product-line/insert-product'/>";
+    }
     jQuery(function ($) {
         //initiate dataTables plugin
         var myTable =

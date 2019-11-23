@@ -9,4 +9,6 @@ public interface IUser {
 	Boolean addUser(User user);
 	List<User> getListUser();
 	void removeUserById(Integer id);
+	void updateUser(Integer id);
+	User getUserById(Integer id);
 }

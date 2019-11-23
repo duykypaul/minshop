@@ -37,4 +37,9 @@ public class ProductService implements IProduct {
     public Integer saveProduct(Product product) {
         return productDao.saveProduct(product);
     }
+
+    @Override
+    public void updateProduct(Product product) {
+        productDao.updateProduct(product);
+    }
 }

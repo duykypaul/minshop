@@ -14,7 +14,10 @@
 <body>
 <div class="container">
     <div class="row well">
-        <h3> Add Product</h3>
+        <c:if test="${product != null}">
+            <h3> Add Product ${product.getProduct_id()}</h3>
+        </c:if>
+
         <div class="col-md-5 col-sm-9 form-group">
             <form action="" id="form-product">
                 <label for="name">Name:</label>
@@ -135,22 +138,19 @@
         event.preventDefault();
         var formProduct = $("#form-product").serializeArray();
         var formProductDetails = $("#form-product-details").serializeArray();
-        var data = {};
-        var arrayProductDetails = [];
+        console.log(formProductDetails);
+        data = {};
+        objectProductDetails = {};
+        arrayProductDetails = [];
         $.each(formProduct, function (i, field) {
             data[field.name] = field.value;
         });
-        var index = 0;
         $.each(formProductDetails, function (i, field) {
-            if(index % 3 == 0) {
+            objectProductDetails[field.name] = field.value;
+            if((i + 1) % 3 == 0) {
+                arrayProductDetails.push(objectProductDetails);
                 objectProductDetails = {};
             }
-             objectProductDetails[field.name] = field.value;
-             if(i!= 0 && i % 2 == 0) {
-                 arrayProductDetails.push(objectProductDetails);
-             }
-             index++;
-
         });
         data["image"] = files[0].name;
         data["productDetails"] = arrayProductDetails;
@@ -175,6 +175,10 @@
                 })
             }
         });
+    });
+
+    $('body').on("click", ".remove-product-details", function () {
+        $(this).closest(".add-product-details").remove();
     })
 </script>
 </body>

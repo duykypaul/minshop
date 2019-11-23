@@ -10,4 +10,5 @@ public interface IProduct {
     List<Product> getProductListById(Integer id);
     Integer removeProductById(Integer id);
     Integer saveProduct(Product product);
+    void updateProduct(Product product);
 }

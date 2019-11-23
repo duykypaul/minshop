@@ -33,4 +33,14 @@ public class UserService implements IUser {
 		userDao.removeUserById(id);
     }
 
+	@Override
+	public void updateUser(Integer id) {
+		userDao.updateUser(id);
+	}
+
+	@Override
+	public User getUserById(Integer id) {
+		return userDao.getUserById(id);
+	}
+
 }

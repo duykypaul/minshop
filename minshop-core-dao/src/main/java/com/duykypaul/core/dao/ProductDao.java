@@ -68,4 +68,9 @@ public class ProductDao implements IProduct {
         Session session = sessionFactory.getCurrentSession();
         return (Integer) session.save(product);
     }
+
+    @Override
+    public void updateProduct(Product product) {
+        sessionFactory.getCurrentSession().update(product);
+    }
 }

@@ -70,7 +70,7 @@
                                     <div class="hidden-sm hidden-xs action-buttons">
 
                                         <a class="green" href="#">
-                                            <i class="ace-icon fa fa-pencil bigger-130"></i>
+                                            <i onclick="updateProductById(${product.getProduct_id()}, event)" class="ace-icon fa fa-pencil bigger-130"></i>
                                         </a>
 
                                         <a class="red" href="#">
@@ -90,17 +90,17 @@
 
                                                 <li>
                                                     <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit">
-																				<span class="green">
-																					<i class="ace-icon fa fa-pencil-square-o bigger-120"></i>
-																				</span>
+                                                        <span class="green">
+                                                            <i onclick="updateProductById(${product.getProduct_id()}, event)" class="ace-icon fa fa-pencil-square-o bigger-120"></i>
+                                                        </span>
                                                     </a>
                                                 </li>
 
                                                 <li>
                                                     <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
-																				<span class="red">
-																					<i class="ace-icon fa fa-trash-o bigger-120"></i>
-																				</span>
+                                                        <span class="red">
+                                                            <i onclick="deleteProductById(${product.getProduct_id()}, event)" class="ace-icon fa fa-trash-o bigger-120"></i>
+                                                        </span>
                                                     </a>
                                                 </li>
                                             </ul>
