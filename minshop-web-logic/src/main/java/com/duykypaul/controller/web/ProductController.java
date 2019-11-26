@@ -23,6 +23,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping(value = {"/san-pham", "/admin/product-line"})
+@SessionAttributes({"product"})
 public class ProductController {
     @Autowired
     ProductService productService;

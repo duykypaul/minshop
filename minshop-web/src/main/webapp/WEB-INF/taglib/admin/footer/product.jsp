@@ -43,7 +43,7 @@
     function updateProductById(id, e) {
         e.preventDefault();
         $.ajax({
-            url: "/minshop/api/UpdateProduct",
+            url: "/minshop/api/getProduct",
             data: {
                 id: id
             }
@@ -229,7 +229,6 @@
             return 'left';
         }
 
-
         /***************/
         $('.show-details-btn').on('click', function (e) {
             e.preventDefault();
@@ -238,9 +237,6 @@
         });
 
         $('#delete-product-multi').on('click', function () {
-
-            // var checkStr =  confirm('are you sure you want to delete this?');
-            // if(checkStr == true){
             showAlertBeforeDelete(function () {
                 var id = 0;
                 $("#dynamic-table > tbody input:checked").each(function () {
@@ -262,12 +258,12 @@
                     });
                 });
             });
-            // }else{
-            //     return false;
-            // }
         });
         $('#insert-product').on('click', function (e) {
             e.preventDefault();
+            $.ajax({
+                url: "/minshop/api/RemoveProductSession"
+            });
             window.location = "<c:url value='/admin/product-line/insert-product'/>";
         });
     })

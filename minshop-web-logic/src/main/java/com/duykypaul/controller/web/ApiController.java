@@ -1,5 +1,6 @@
 package com.duykypaul.controller.web;
 
+import com.duykypaul.core.common.constant.CoreConstant;
 import com.duykypaul.core.persistence.entity.*;
 import com.duykypaul.core.service.ProductService;
 import com.duykypaul.core.service.UserService;
@@ -155,18 +156,24 @@ public class ApiController {
 			setupProductLine(product, jsonObject);
             setupProductDetailsList(product, jsonObject);
 
-            productService.saveProduct(product);
+			productService.saveProduct(product);
 
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
-    @GetMapping("UpdateProduct")
-    public String saveProducts(ModelMap modelMap, @RequestParam Integer id) {
+    @GetMapping("getProduct")
+    public void saveProducts(HttpSession httpSession, @RequestParam Integer id) {
         Product product = productService.getProductById(id);
-        modelMap.addAttribute("product", product);
-        return "admin/insertProduct";
+        CoreConstant.ISUPDATE = true;
+        httpSession.setAttribute("product", product);
+    }
+
+    @GetMapping("RemoveProductSession")
+    public void removeProductSession(HttpSession httpSession) {
+	    CoreConstant.ISUPDATE = false;
+        httpSession.removeAttribute("product");
     }
 
     private void setupProductAttributes(Product product, JsonNode jsonObject) {
