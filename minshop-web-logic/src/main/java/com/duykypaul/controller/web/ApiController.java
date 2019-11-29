@@ -145,18 +145,38 @@ public class ApiController {
 	@PostMapping("SaveProduct")
 	@ResponseBody
 	public void saveProduct(@RequestParam String dataJson) {
-        System.out.println(dataJson);
 		ObjectMapper objectMapper = new ObjectMapper();
 		JsonNode jsonObject;
 		try {
 			jsonObject = objectMapper.readTree(dataJson);
-            Product product = new Product();
+			Product product = new Product();
 
-            setupProductAttributes(product, jsonObject);
+			setupProductAttributes(product, jsonObject);
 			setupProductLine(product, jsonObject);
-            setupProductDetailsList(product, jsonObject);
+			setupProductDetailsList(product, jsonObject);
 
 			productService.saveProduct(product);
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@PostMapping("UpdateProduct")
+	@ResponseBody
+	public void updateProduct(@RequestParam String dataJson) {
+		System.out.println(dataJson);
+		ObjectMapper objectMapper = new ObjectMapper();
+		JsonNode jsonObject;
+		try {
+			jsonObject = objectMapper.readTree(dataJson);
+			Product product = new Product();
+
+			setupProductAttributes(product, jsonObject);
+			setupProductLine(product, jsonObject);
+			setupProductDetailsList(product, jsonObject);
+
+			productService.updateProduct(product);
 
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -177,10 +197,15 @@ public class ApiController {
     }
 
     private void setupProductAttributes(Product product, JsonNode jsonObject) {
+		if(jsonObject.has("product_id")){
+			product.setProduct_id(jsonObject.get("product_id").asInt());
+		}
         product.setName(jsonObject.get("name").asText());
         product.setPrice(jsonObject.get("price").asInt());
         product.setDescriptions(jsonObject.get("descriptions").asText());
-        product.setImage(jsonObject.get("image").asText());
+        if(!jsonObject.get("image").equals("")) {
+			product.setImage(jsonObject.get("image").asText());
+		}
         product.setObject(jsonObject.get("object").asText());
     }
 

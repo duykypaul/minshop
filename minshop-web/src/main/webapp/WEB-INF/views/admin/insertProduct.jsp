@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="../../taglib/taglib.jsp" %>
+<%@ page import="com.duykypaul.core.common.constant.CoreConstant" %>
 <html>
 <head>
     <title>Insert Product</title>
@@ -16,14 +17,28 @@
     <div class="row well">
         <div class="col-md-6 col-sm-9 form-group">
             <form action="" id="form-product">
+
                 <label for="name">Name:</label>
                 <input type="text" class="form-control" id="name" name="name" value="${product.getName()}" placeholder="Enter name product">
                 </br>
                 <label for="image">Image:</label>
                 <input type="file" class="form-control" id="image" name="image">
                 </br>
-                <img id="img-product" src="" alt="df" class="hidden" style="width: 200px; height: 200px;"/>
-                </br>
+                <div>
+                    <img id="img-product" alt="${product.getImage()}"
+                         style="width: 200px; height: 200px;"
+                            <c:if test="${product != null}">
+                                src='<c:url value="/resources/image/products/${product.getImage()}" />'
+                                class=""
+                                data-img = "${product.getImage()}"
+                            </c:if>
+                            <c:if test="${product == null}">
+                                src=""
+                                class="hidden"
+                            </c:if>
+                    />
+                </div>
+
                 <label for="price">Price:</label>
                 <input type="number" class="form-control" id="price" name="price" min="1000" value="${product.getPrice() != null ? product.getPrice() : 1000 }" step="1000">
                 </br>
@@ -58,6 +73,7 @@
                 <textarea type="password" class="form-control" id="descriptions" rows="5" name="descriptions"
                           value="${product.getDescriptions()}" placeholder="Enter product descriptions"></textarea>
             </form>
+            <input type="hidden" name="product_id" value="${product.getProduct_id()}" />
         </div>
         <div class="col-md-6 col-sm-12 form-group">
             <form id="form-product-details">
@@ -99,7 +115,7 @@
                                         </c:if>
                                         <c:if test="${loop.index != 0}">
                                             <br>
-                                            <label for="product_color_id">&nbsp;</label>
+                                            <label for="product_size_id">&nbsp;</label>
                                         </c:if>
                                         <select class="form-control" id="product_size_id" name="product_size_id">
                                             <c:choose>
@@ -125,7 +141,7 @@
                                         </c:if>
                                         <c:if test="${loop.index != 0}">
                                             <br>
-                                            <label for="product_color_id">&nbsp;</label>
+                                            <label for="quantity">&nbsp;</label>
                                         </c:if>
                                         <input type="number" class="form-control" id="quantity" name="quantity" min="1" value="${item.getQuantity()}">
                                     </div>
@@ -174,7 +190,12 @@
         </div>
     </div>
     <div>
-        <input type="button" id="btn-save-product" class="btn btn-primary" value="Save Product"/>
+        <c:if test="${product != null}">
+            <input type="button" id="btn-update-product" class="btn btn-primary" value="Update Product"/>
+        </c:if>
+        <c:if test="${product == null}">
+            <input type="button" id="btn-save-product" class="btn btn-primary" value="Save Product"/>
+        </c:if>
     </div>
     <div id="add-product-details" class="add-product-details">
         <div class="row">
@@ -218,6 +239,9 @@
 <script src="<c:url value='/resources/assets/js/ace-elements.min.js'/>"></script>
 <script src="<c:url value='/resources/assets/js/ace.min.js'/>"></script>
 <script>
+    $( document ).ready(function() {
+
+    });
     var files = [];
     forms = new FormData()
     $("#image").change(function (event) {
@@ -261,18 +285,44 @@
                 dataJson: JSON.stringify(data)
             },
             success: function () {
-                console.log("save product  " + JSON.stringify(data));
-                $.ajax({
-                    url: "/minshop/api/UploadFile",
-                    type: "POST",
-                    data: forms,
-                    contentType: false,
-                    processData: false,
-                    enctype: "multipart/form-data",
-                    success: function () {
-                        console.log(files[0].name);
-                    }
-                })
+                uploadFile(forms);
+            }
+        });
+    });
+
+    $("#btn-update-product").click(function (event) {
+        event.preventDefault();
+        var formProduct = $("#form-product").serializeArray();
+        var formProductDetails = $("#form-product-details").serializeArray();
+        data = {};
+        objectProductDetails = {};
+        arrayProductDetails = [];
+        data['product_id'] = $('input[name=product_id]').val();
+        $.each(formProduct, function (i, field) {
+            data[field.name] = field.value;
+        });
+        $.each(formProductDetails, function (i, field) {
+            objectProductDetails[field.name] = field.value;
+            if((i + 1) % 3 == 0) {
+                arrayProductDetails.push(objectProductDetails);
+                objectProductDetails = {};
+            }
+        });
+        data["image"] = $("#img-product").attr('data-img');
+        if(files.length > 0) {
+            data["image"] = files[0].name;
+        }
+        data["productDetails"] = arrayProductDetails;
+        $.ajax({
+            url: "/minshop/api/UpdateProduct",
+            type: "POST",
+            data: {
+                dataJson: JSON.stringify(data)
+            },
+            success: function () {
+                if(files.length > 0) {
+                    uploadFile(forms);
+                }
             }
         });
     });
@@ -280,6 +330,19 @@
     $('body').on("click", ".remove-product-details", function () {
         $(this).closest(".add-product-details").remove();
     })
+
+    function uploadFile(forms) {
+        $.ajax({
+            url: "/minshop/api/UploadFile",
+            type: "POST",
+            data: forms,
+            contentType: false,
+            processData: false,
+            enctype: "multipart/form-data",
+            success: function () {
+            }
+        })
+    }
 </script>
 </body>
 </html>

@@ -70,7 +70,10 @@ public class ProductDao implements IProduct {
     }
 
     @Override
-    public void updateProduct(Product product) {
-        sessionFactory.getCurrentSession().update(product);
+    @Transactional
+    public Integer updateProduct(Product product) {
+        Session session =  sessionFactory.getCurrentSession();
+        session.update(product);
+        return 1;
     }
 }

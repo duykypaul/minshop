@@ -39,7 +39,7 @@ public class ProductService implements IProduct {
     }
 
     @Override
-    public void updateProduct(Product product) {
-        productDao.updateProduct(product);
+    public Integer updateProduct(Product product) {
+        return productDao.updateProduct(product);
     }
 }
