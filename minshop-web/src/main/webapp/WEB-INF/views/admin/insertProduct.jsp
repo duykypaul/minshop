@@ -71,7 +71,7 @@
                 </br>
                 <label for="descriptions">Descriptions:</label>
                 <textarea type="password" class="form-control" id="descriptions" rows="5" name="descriptions"
-                          value="${product.getDescriptions()}" placeholder="Enter product descriptions"></textarea>
+                           placeholder="Enter product descriptions">${product.getDescriptions()}</textarea>
             </form>
             <input type="hidden" name="product_id" value="${product.getProduct_id()}" />
         </div>
