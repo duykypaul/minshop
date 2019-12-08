@@ -1,6 +1,7 @@
 package com.duykypaul.controller.web;
 
 import com.duykypaul.core.persistence.entity.Invoice;
+import com.duykypaul.core.persistence.entity.Invoice;
 import com.duykypaul.core.persistence.entity.InvoiceDetails;
 import com.duykypaul.core.persistence.entity.InvoiceDetailsId;
 import com.duykypaul.core.persistence.entity.ShoppingCart;

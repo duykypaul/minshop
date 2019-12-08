@@ -7,7 +7,6 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="../../taglib/taglib.jsp" %>
-<%@ page import="com.duykypaul.core.common.constant.CoreConstant" %>
 <html>
 <head>
     <title>Insert Product</title>
@@ -191,10 +190,11 @@
     </div>
     <div>
         <c:if test="${product != null}">
-            <input type="button" id="btn-update-product" class="btn btn-primary" value="Update Product"/>
+            <input type="button" id="btn-update-product" class="btn btn-primary" value="Update"/>
+            <input type="button" id="btn-exit" class="btn btn-primary" value="Exit"/>
         </c:if>
         <c:if test="${product == null}">
-            <input type="button" id="btn-save-product" class="btn btn-primary" value="Save Product"/>
+            <input type="button" id="btn-save-product" class="btn btn-primary" value="Save"/>
         </c:if>
     </div>
     <div id="add-product-details" class="add-product-details">
@@ -286,6 +286,7 @@
             },
             success: function () {
                 uploadFile(forms);
+                window.location = "<c:url value='/admin/product-line/'/>" + data['product_line_id'];
             }
         });
     });
@@ -323,9 +324,13 @@
                 if(files.length > 0) {
                     uploadFile(forms);
                 }
+                window.location = "<c:url value='/admin/product-line/'/>" + data['product_line_id'];
             }
         });
     });
+    $('#btn-exit').click(function () {
+        parent.history.back();
+    })
 
     $('body').on("click", ".remove-product-details", function () {
         $(this).closest(".add-product-details").remove();
