@@ -89,6 +89,23 @@
             });
         }
 
+        function showAlertBeforeUpdatePrice(callback) {
+            swal({
+                // title: "編集 Item(s)!",
+                text: "Are you sure!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Update",
+                cancelButtonText: "Cancel",
+                confirmButtonClass: "btn btn-success",
+                cancelButtonClass: "btn btn-danger"
+            }).then(function(isConfirm) {
+                if (isConfirm) {
+                    callback();
+                }
+            });
+        }
+
     </script>
 </body>
 </html>

@@ -62,7 +62,7 @@
     </div>
     <div class="col-md-4 col-sm-12">
         <h3>Thông tin người mua/nhận hàng</h3>
-        <form action="/minshop" method="post">
+        <form id="form-customer" action="/minshop" method="post">
             <div class="form-group">
                 <label for="customer_name">Tên</label>
                 <input type="text" class="form-control" id="customer_name" name="customer_name" placeholder="Tên người nhận">
@@ -94,5 +94,13 @@
 </div>
 
 <jsp:include page="../../taglib/web/footer.jsp"/>
+
+<script>
+    $('#ordered').click(function (e) {
+        e.preventDefault();
+        var formCustomer =  $('#form-customer').serializeArray();
+        console.log(formCustomer);
+    })
+</script>
 </body>
 </html>

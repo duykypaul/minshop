@@ -183,19 +183,30 @@ public class ApiController {
 		}
 	}
 
+	@GetMapping("UpdatePriceProduct")
+	@ResponseBody
+	public Boolean UpdatePriceProduct(@RequestParam Integer id){
+		savePromotionDetail();
+		return productService.updatePriceProduct(id);
+	}
+
     @GetMapping("getProduct")
     public void saveProducts(HttpSession httpSession, @RequestParam Integer id) {
         Product product = productService.getProductById(id);
-        CoreConstant.ISUPDATE = true;
         httpSession.setAttribute("product", product);
     }
 
     @GetMapping("RemoveProductSession")
     public void removeProductSession(HttpSession httpSession) {
-	    CoreConstant.ISUPDATE = false;
         httpSession.removeAttribute("product");
     }
 
+	public Integer savePromotionDetail(){
+		PromotionDetails promotionDetails = new PromotionDetails();
+		PromotionDetailsId promotionDetailsId = new PromotionDetailsId(0,0);
+		promotionDetails.setPromotionDetailsId(promotionDetailsId);
+		return productService.savePromotionDetails(promotionDetails);
+	}
     private void setupProductAttributes(Product product, JsonNode jsonObject) {
 		if(jsonObject.has("product_id")){
 			product.setProduct_id(jsonObject.get("product_id").asInt());
@@ -235,4 +246,6 @@ public class ApiController {
         }
         product.setProductDetailsList(productDetailsList);
     }
+
+
 }

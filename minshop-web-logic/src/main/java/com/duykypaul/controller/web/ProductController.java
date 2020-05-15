@@ -1,5 +1,6 @@
 package com.duykypaul.controller.web;
 
+import com.duykypaul.core.data.ProductSearchBean;
 import com.duykypaul.core.persistence.entity.Product;
 import com.duykypaul.core.persistence.entity.ProductColor;
 import com.duykypaul.core.persistence.entity.ProductLine;
@@ -11,10 +12,7 @@ import com.duykypaul.core.service.ProductSizeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -37,10 +35,22 @@ public class ProductController {
     @GetMapping("/{product_line_id}")
     public String Default(@PathVariable Integer product_line_id, ModelMap modelMap) {
         List<Product> productList = productService.getProductListById(product_line_id);
-        modelMap.addAttribute("productList", productList);
+//        modelMap.addAttribute("productList", productList);
+        System.out.println(productService.findAll().get(0));
         String url = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest().getRequestURI();
         if(url.contains("/product-line")) return "admin/product";
         return "web/product";
+    }
+
+    @GetMapping("/search")
+    public String productSearch (@ModelAttribute("productSearchBean") ProductSearchBean data, ModelMap modelMap) {
+        Object[] result = productService.findProductListSearchInfo(data);
+        List<Product> productList = (List<Product>) result[0];
+        modelMap.addAttribute("productList", productList);
+        modelMap.addAttribute("ProductSearchBean", data);
+        modelMap.addAttribute("totalPage", Math.ceil((Integer)result[1] / data.getMaxResult()) + 1);
+        modelMap.addAttribute("pageNumber", data.getPageNumber());
+        return "admin/product";
     }
 
     @GetMapping("/insert-product")

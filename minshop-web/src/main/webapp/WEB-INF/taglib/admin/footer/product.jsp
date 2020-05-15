@@ -25,7 +25,8 @@
 <!-- ace scripts -->
 <script src="<c:url value='/resources/assets/js/ace-elements.min.js'/>"></script>
 <script src="<c:url value='/resources/assets/js/ace.min.js'/>"></script>
-
+<%--twbsPagination--%>
+<script src="<c:url value="/resources/js/jquery.twbsPagination.min.js" />"></script>
 
 <!-- inline scripts related to this page -->
 <script type="text/javascript">
@@ -49,7 +50,59 @@
             }
         });
         window.location = "<c:url value='/admin/product-line/insert-product'/>";
-    }
+    };
+    $('body').on('click', '#update-test', function (e) {
+        showAlertBeforeUpdatePrice(function () {
+            $("#dynamic-table > tbody input:checked").each(function () {
+                id = $(this).val();
+                $.ajax({
+                    url: "/minshop/api/UpdatePriceProduct",
+                    data: {
+                        id: id  
+                    },
+                    success: function (value) {
+                        // alert(id + value);
+                        if(value){
+                            swal({
+                                title: "Good job!",
+                                text: "You clicked the button!",
+                                confirmButtonText: "Oki",
+                                confirmButtonClass: "btn btn-success"
+                            }).then(function(isConfirm) {
+                                if (isConfirm) {
+                                    window.location = "<c:url value='/admin/product-line/1'/>";
+                                }
+                            })
+                        } else {
+                            swal({
+                                title: "Not Good job!",
+                                text: "You clicked the button!",
+                                confirmButtonText: "Okiiiii",
+                                confirmButtonClass: "btn btn-danger"
+                            })
+                        }
+
+                    },
+                    error: function () {
+                        // alert(ids);
+                    }
+                });
+            });
+
+        });
+    })
+    $('body').on('click','#btn-search', function (e) {
+        $('#pageNumber').val(1);
+        $('#formUrl').submit();
+    });
+    $('#btn-clear').on('click', function (e) {
+        $('#nameProduct').val("");
+        $('#priceFrom').val("");
+        $('#priceTo').val("");
+        $('#maxResult').val(10);
+        $('#pageNumber').val(1);
+        $('#dynamic-table').DataTable().clear().draw();
+    });
     jQuery(function ($) {
         //initiate dataTables plugin
         var myTable =
@@ -236,6 +289,8 @@
             $(this).find(ace.vars['.icon']).toggleClass('fa-angle-double-down').toggleClass('fa-angle-double-up');
         });
 
+
+
         $('#delete-product-multi').on('click', function () {
             showAlertBeforeDelete(function () {
                 var id = 0;
@@ -266,5 +321,24 @@
             });
             window.location = "<c:url value='/admin/product-line/insert-product'/>";
         });
+        $('.price-test').css('color', 'red');
+
+        // $('#display-result').change(function() {
+        //     $('#maxResult').val($(this).val());
+        // });
+
+        // $('body').on('click', '.page-item', function (e) {
+        //     e.preventDefault();
+        //     var maxResult = $('#display-result');
+        //     if($(this).text().trim() === "Next") {
+        //         $('#pageNumber').val($('.pagination .active').next().eq(1).text());
+        //     } else if($(this).text().trim() === "Previous"){
+        //         $('#pageNumber').val($('.pagination .active').prev().eq(1).text());
+        //     } else {
+        //         $('#pageNumber').val($(this).text());
+        //     }
+        //     // console.log($('#display-result').value);
+        //     $('#formUrl').submit();
+        // });
     })
 </script>
