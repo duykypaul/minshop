@@ -1,8 +1,11 @@
 package com.duykypaul.core.service;
 
 import com.duykypaul.core.dao.ProductDao;
+import com.duykypaul.core.data.ProductSearchBean;
 import com.duykypaul.core.inf.IProduct;
 import com.duykypaul.core.persistence.entity.Product;
+import com.duykypaul.core.persistence.entity.PromotionDetails;
+import com.duykypaul.core.persistence.entity.PromotionDetailsId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,6 +32,11 @@ public class ProductService implements IProduct {
     }
 
     @Override
+    public Object[] findProductListSearchInfo(ProductSearchBean productSearchBean) {
+        return productDao.findProductListSearchInfo(productSearchBean);
+    }
+
+    @Override
     public Integer removeProductById(Integer id) {
         return productDao.removeProductById(id);
     }
@@ -41,5 +49,19 @@ public class ProductService implements IProduct {
     @Override
     public Integer updateProduct(Product product) {
         return productDao.updateProduct(product);
+    }
+
+    @Override
+    public Boolean updatePriceProduct(Integer id) {
+        return productDao.updatePriceProduct(id);
+    }
+
+    public Integer savePromotionDetails(PromotionDetails promotionDetailsId){
+        return productDao.savePromotionDetails(promotionDetailsId);
+    }
+
+    @Override
+    public List<Product> findAll() {
+        return productDao.findAll();
     }
 }
